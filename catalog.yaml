@@ -18,6 +18,7 @@ entries:
   - 2436502fe387
   - 244ec4c2df90
   - 2e5c0fe0668f
+  - 30831e2c3a0a
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -41,3 +42,4 @@ aliases:
   - plot_kmeans_silhouette_analysis-xorq_k4_preds
   - plot_mlp_alpha-xorq_circles_alpha316_preds
   - plot_quantile_regression-xorq_pareto_lr_preds
+  - plot_lda_qda-xorq_qda_iso_preds
