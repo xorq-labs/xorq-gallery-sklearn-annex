@@ -82,6 +82,7 @@ entries:
   - af08bb5642dd
   - b16bbfec081b
   - b1ce95d5a1e1
+  - b2537a751f9b
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -169,3 +170,4 @@ aliases:
   - plot_classifier_comparison-xorq_linearly_separable_random_forest_preds
   - plot_mlp_alpha-xorq_moons_alpha100_preds
   - plot_faces_decomposition-xorq_dict_pos_transformed
+  - plot_tree_regression-xorq_depth2_preds
