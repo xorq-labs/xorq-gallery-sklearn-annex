@@ -93,6 +93,7 @@ entries:
   - c1dff5d7f47f
   - c2b0d147d2cb
   - c451830a4499
+  - c54545126b73
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -192,3 +193,4 @@ aliases:
   - plot_classifier_comparison-xorq_linearly_separable_linear_svm_preds
   - plot_svm_kernels-xorq_rbf_preds
   - plot_classifier_comparison-xorq_circles_linear_svm_preds
+  - plot_svm_regression-xorq_poly_preds
