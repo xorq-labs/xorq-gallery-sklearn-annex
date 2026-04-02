@@ -12,6 +12,7 @@ entries:
   - 1a2a8ce4b956
   - 1c86cf1b552a
   - 1fc06a9a305f
+  - 21e551558e3d
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -26,3 +27,4 @@ aliases:
   - plot_classifier_comparison-xorq_moons_rbf_svm_preds
   - plot_classifier_comparison-xorq_moons_decision_tree_preds
   - plot_faces_decomposition-xorq_nmf_transformed
+  - plot_mlp_alpha-xorq_linearly_alpha032_preds
