@@ -1,0 +1,9 @@
+md5sum: 58a0492f11996a632d7487a39e19fb3b
+backends:
+  - xorq
+expr_metadata:
+  kind: expr
+  schema_out:
+    label: int64
+    transformed: "array<struct<key: string, value: float64>>"
+  root_tag: FittedPipeline-transform
