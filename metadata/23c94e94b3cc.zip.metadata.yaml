@@ -1,0 +1,23 @@
+md5sum: 8925b386b6d6c28a94f3078e7424ea28
+backends:
+  - xorq
+expr_metadata:
+  kind: expr
+  schema_out:
+    x_0: float64
+    x_1: float64
+    x_2: float64
+    x_3: float64
+    x_4: float64
+    x_5: float64
+    x_6: float64
+    x_7: float64
+    x_8: float64
+    x_9: float64
+    y: int64
+    group: int64
+    t: int64
+    fold_0: int8
+    fold_1: int8
+    fold_2: int8
+    fold_3: int8
