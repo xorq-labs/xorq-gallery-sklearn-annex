@@ -79,6 +79,7 @@ entries:
   - a467e955ea6f
   - aafe3da5833f
   - ac3ab5c7509b
+  - af08bb5642dd
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -163,3 +164,4 @@ aliases:
   - plot_lasso_and_elasticnet-xorq_lasso_preds
   - plot_all_scaling-xorq_normalizer_transformed
   - plot_discretization_strategies-xorq_ds1_uniform_transformed
+  - plot_classifier_comparison-xorq_linearly_separable_random_forest_preds
