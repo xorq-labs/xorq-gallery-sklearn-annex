@@ -96,6 +96,7 @@ entries:
   - c54545126b73
   - c6e5f579fe74
   - c88069fd31d3
+  - c902ee8518e4
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -199,3 +200,4 @@ aliases:
   - plot_quantile_regression-xorq_normal_q50_preds
   - plot_quantile_regression-xorq_normal_qr_preds
   - plot_roc-xorq_class1_proba
+  - plot_classification_probability-xorq_lr_c100_preds
