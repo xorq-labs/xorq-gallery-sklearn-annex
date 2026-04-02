@@ -15,6 +15,7 @@ entries:
   - 21e551558e3d
   - 22a2b72e594b
   - 23c94e94b3cc
+  - 2436502fe387
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -35,3 +36,4 @@ aliases:
   - plot_cv_indices-xorq_shufflesplit_folds
   - plot_cv_indices-xorq_stratifiedkfold_folds
   - plot_cv_indices-xorq_stratifiedshufflesplit_folds
+  - plot_kmeans_silhouette_analysis-xorq_k4_preds
