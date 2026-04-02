@@ -1,0 +1,13 @@
+md5sum: a7f4c13bb8b7826c5e0621860db5cb1d
+backends:
+  - xorq
+  - xorq
+  - xorq
+expr_metadata:
+  kind: source
+  schema_out:
+    target: int64
+    row_idx: int64
+    target_2: int64
+    scores_2: array<float64>
+  root_tag: FittedPipeline-predict_proba

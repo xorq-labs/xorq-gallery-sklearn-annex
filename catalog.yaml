@@ -124,6 +124,7 @@ entries:
   - f4452bd7dc71
   - f6625b94a32b
   - f789dbe30a5c
+  - faaaeb461b87
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -255,3 +256,4 @@ aliases:
   - plot_discretization_strategies-xorq_ds2_quantile_transformed
   - plot_faces_decomposition-xorq_fa_transformed
   - plot_classifier_comparison-xorq_circles_random_forest_preds
+  - plot_roc-xorq_class2_proba
