@@ -47,6 +47,7 @@ entries:
   - 5258d7c05005
   - 5272fad1a3c6
   - 543823c80d94
+  - 54b4c6cf2696
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -99,3 +100,4 @@ aliases:
   - plot_mlp_alpha-xorq_linearly_alpha316_preds
   - plot_column_transformer_mixed_types-xorq_ct_lr_preds
   - plot_classifier_comparison-xorq_circles_neural_net_preds
+  - plot_svm_kernels-xorq_sigmoid_preds
