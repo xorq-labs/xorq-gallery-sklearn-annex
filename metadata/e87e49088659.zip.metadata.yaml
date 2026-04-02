@@ -1,0 +1,10 @@
+md5sum: bbe6a5bc3fccfc93b900b6b2a5226d5e
+backends:
+  - xorq
+  - xorq
+expr_metadata:
+  kind: expr
+  schema_out:
+    y: int64
+    pred: int64
+  root_tag: FittedPipeline-predict
