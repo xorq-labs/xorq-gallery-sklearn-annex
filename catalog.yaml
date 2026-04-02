@@ -104,6 +104,7 @@ entries:
   - d34b44341a11
   - d4130edc2b5c
   - d8f9f10d8ed0
+  - d9cfbee0fa26
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -215,3 +216,4 @@ aliases:
   - plot_discretization_strategies-xorq_ds2_kmeans_transformed
   - plot_classifier_comparison-xorq_linearly_separable_decision_tree_preds
   - plot_discretization_strategies-xorq_ds2_uniform_transformed
+  - plot_all_scaling-xorq_minmax_transformed
