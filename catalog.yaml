@@ -9,6 +9,7 @@ entries:
   - 13290254bc71
   - 142f967e48b9
   - 14542a4d5fb7
+  - 1a2a8ce4b956
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -20,3 +21,4 @@ aliases:
   - plot_all_scaling-xorq_quantile_normal_transformed
   - plot_kmeans_silhouette_analysis-xorq_k6_preds
   - plot_quantile_regression-xorq_normal_q95_preds
+  - plot_classifier_comparison-xorq_moons_rbf_svm_preds
