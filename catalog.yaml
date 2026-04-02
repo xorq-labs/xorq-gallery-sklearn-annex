@@ -45,6 +45,7 @@ entries:
   - 4e3b804825f8
   - 5200833030c4
   - 5258d7c05005
+  - 5272fad1a3c6
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -95,3 +96,4 @@ aliases:
   - plot_svm_regression-xorq_rbf_preds
   - plot_kmeans_silhouette_analysis-xorq_k2_preds
   - plot_mlp_alpha-xorq_linearly_alpha316_preds
+  - plot_column_transformer_mixed_types-xorq_ct_lr_preds
