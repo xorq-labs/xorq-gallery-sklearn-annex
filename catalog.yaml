@@ -22,6 +22,7 @@ entries:
   - 30a956d680e7
   - 30e4c1759b69
   - 30f2e6facd4d
+  - 3402d9d2c8b3
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -49,3 +50,4 @@ aliases:
   - plot_quantile_regression-xorq_normal_q05_preds
   - plot_tomography_l1_reconstruction-xorq_ridge_preds
   - plot_kmeans_silhouette_analysis-xorq_k5_preds
+  - plot_voting_regressor-xorq_vr_preds
