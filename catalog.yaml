@@ -35,6 +35,7 @@ entries:
   - 3e8eb631306e
   - 3eae309d5322
   - 3ee858135c17
+  - 3fbd178f5949
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -75,3 +76,4 @@ aliases:
   - plot_classifier_comparison-xorq_moons_neural_net_preds
   - plot_lda_qda-xorq_lda_iso_preds
   - plot_classification_probability-xorq_lr_c01_preds
+  - plot_tomography_l1_reconstruction-xorq_lasso_preds
