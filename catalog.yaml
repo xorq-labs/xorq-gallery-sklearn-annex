@@ -56,6 +56,7 @@ entries:
   - 5e7a1b860cf7
   - 5ffb13526281
   - 62089f653cd7
+  - 6457a0f0d516
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -117,3 +118,4 @@ aliases:
   - plot_nca_classification-xorq_knn_preds
   - plot_mlp_alpha-xorq_moons_alpha1000_preds
   - plot_classifier_comparison-xorq_moons_linear_svm_preds
+  - plot_mlp_alpha-xorq_moons_alpha010_preds
