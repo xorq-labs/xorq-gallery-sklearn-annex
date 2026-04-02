@@ -128,6 +128,7 @@ entries:
   - fac51f39401f
   - fc33c7bd3038
   - fd5b7f4f55e4
+  - ff71465e2bd1
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -263,3 +264,4 @@ aliases:
   - plot_time_series_lagged_features-xorq_hgbr_preds
   - plot_mlp_alpha-xorq_circles_alpha010_preds
   - plot_all_scaling-xorq_quantile_uniform_transformed
+  - plot_faces_decomposition-xorq_pca_transformed
