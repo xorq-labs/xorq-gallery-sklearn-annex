@@ -43,6 +43,7 @@ entries:
   - 46f90e951f53
   - 4dd222eec066
   - 4e3b804825f8
+  - 5200833030c4
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -91,3 +92,4 @@ aliases:
   - plot_lasso_and_elasticnet-xorq_elastic_net_preds
   - plot_logistic_multinomial-xorq_multinomial_preds
   - plot_svm_regression-xorq_rbf_preds
+  - plot_kmeans_silhouette_analysis-xorq_k2_preds
