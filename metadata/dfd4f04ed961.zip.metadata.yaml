@@ -1,0 +1,14 @@
+md5sum: 8ca45b14d661bc364a193037d611fa8d
+backends:
+  - xorq
+expr_metadata:
+  kind: source
+  schema_out:
+    subject_id: int64
+    minibatchdictionarylearning0: float64
+    minibatchdictionarylearning1: float64
+    minibatchdictionarylearning2: float64
+    minibatchdictionarylearning3: float64
+    minibatchdictionarylearning4: float64
+    minibatchdictionarylearning5: float64
+  root_tag: FittedPipeline-transform
