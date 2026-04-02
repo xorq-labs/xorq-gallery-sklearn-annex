@@ -1,0 +1,1 @@
+4ec0be8d-891c-4fb9-9e51-0eed2a69c5fe bucket=xorq-mvp-bucket datacenter=US encryption=none fileprefix=annex-only/my-first-catalog-annex/ host=storage.googleapis.com name=my-first-catalog-annex port=80 protocol=https region=auto requeststyle=path signature=v4 storageclass=STANDARD type=S3 timestamp=1775150226s
