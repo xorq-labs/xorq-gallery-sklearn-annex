@@ -23,6 +23,7 @@ entries:
   - 30e4c1759b69
   - 30f2e6facd4d
   - 3402d9d2c8b3
+  - 342eade44c96
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -51,3 +52,4 @@ aliases:
   - plot_tomography_l1_reconstruction-xorq_ridge_preds
   - plot_kmeans_silhouette_analysis-xorq_k5_preds
   - plot_voting_regressor-xorq_vr_preds
+  - plot_classifier_comparison-xorq_circles_adaboost_preds
