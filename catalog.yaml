@@ -62,6 +62,7 @@ entries:
   - 6d04d12559a8
   - 6dc111bcc0b3
   - 703c6102b0e9
+  - 77e116009dda
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -129,3 +130,4 @@ aliases:
   - plot_mlp_alpha-xorq_moons_alpha032_preds
   - plot_document_classification_20newsgroups-xorq_ridge_preds
   - plot_all_scaling-xorq_robust_transformed
+  - plot_svm_kernels-xorq_linear_preds
