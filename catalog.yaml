@@ -78,6 +78,7 @@ entries:
   - a4111e19839b
   - a467e955ea6f
   - aafe3da5833f
+  - ac3ab5c7509b
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -161,3 +162,4 @@ aliases:
   - plot_mlp_alpha-xorq_circles_alpha100_preds
   - plot_lasso_and_elasticnet-xorq_lasso_preds
   - plot_all_scaling-xorq_normalizer_transformed
+  - plot_discretization_strategies-xorq_ds1_uniform_transformed
