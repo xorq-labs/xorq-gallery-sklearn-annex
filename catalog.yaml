@@ -85,6 +85,7 @@ entries:
   - b2537a751f9b
   - b3a14ca3ed4a
   - b4a2662d93bf
+  - b956906a46e5
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -175,3 +176,4 @@ aliases:
   - plot_tree_regression-xorq_depth2_preds
   - plot_kmeans_digits-xorq_kmeans_pp_preds
   - plot_voting_regressor-xorq_rf_preds
+  - plot_confusion_matrix-xorq_svc_preds
