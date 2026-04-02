@@ -110,6 +110,7 @@ entries:
   - dcf8cbda0ba3
   - dfd4f04ed961
   - e0b1d7bb48df
+  - e219763ba5e5
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -227,3 +228,4 @@ aliases:
   - plot_logistic_multinomial-xorq_ovr_preds
   - plot_faces_decomposition-xorq_dict_learning_transformed
   - plot_compare_calibration-xorq_svc_proba
+  - plot_classifier_comparison-xorq_linearly_separable_nearest_neighbors_preds
