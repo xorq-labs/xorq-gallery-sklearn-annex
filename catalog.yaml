@@ -66,6 +66,7 @@ entries:
   - 79835331c335
   - 7b92d79bd644
   - 7e56a0fad0f6
+  - 8306d4e90fa4
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -137,3 +138,4 @@ aliases:
   - plot_lda_qda-xorq_lda_shared_preds
   - plot_classifier_comparison-xorq_linearly_separable_adaboost_preds
   - plot_nca_classification-xorq_nca_knn_preds
+  - plot_voting_regressor-xorq_gb_preds
