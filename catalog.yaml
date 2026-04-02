@@ -106,6 +106,7 @@ entries:
   - d8f9f10d8ed0
   - d9cfbee0fa26
   - da5d81960a3d
+  - dbae4cc953ca
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -219,3 +220,4 @@ aliases:
   - plot_discretization_strategies-xorq_ds2_uniform_transformed
   - plot_all_scaling-xorq_minmax_transformed
   - plot_tree_regression-xorq_depth5_preds
+  - plot_stack_predictors-xorq_spline_ridge_preds
