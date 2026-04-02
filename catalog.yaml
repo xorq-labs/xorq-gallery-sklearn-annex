@@ -1,4 +1,6 @@
 entries:
   - 031a27d8db85
+  - 05bae850d3e2
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
+  - plot_compare_calibration-xorq_naive_bayes_proba
