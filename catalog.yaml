@@ -1,2 +1,4 @@
-entries: []
-aliases: []
+entries:
+  - 031a27d8db85
+aliases:
+  - plot_lda_qda-xorq_qda_shared_preds
