@@ -100,6 +100,7 @@ entries:
   - cad22643bbaf
   - cb7ad6e02647
   - cee4e6d861b6
+  - cf3fc7147b43
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -207,3 +208,4 @@ aliases:
   - plot_roc-xorq_class0_proba
   - plot_quantile_regression-xorq_normal_lr_preds
   - plot_all_scaling-xorq_power_bc_transformed
+  - plot_classifier_comparison-xorq_moons_adaboost_preds
