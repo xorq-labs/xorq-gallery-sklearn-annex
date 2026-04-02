@@ -90,6 +90,7 @@ entries:
   - c13a1fe669ad
   - c19bc8a82ecd
   - c1b8c931b244
+  - c1dff5d7f47f
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -186,3 +187,4 @@ aliases:
   - plot_quantile_regression-xorq_pareto_qr_preds
   - plot_all_scaling-xorq_maxabs_transformed
   - plot_quantile_regression-xorq_pareto_q05_preds
+  - plot_classifier_comparison-xorq_linearly_separable_linear_svm_preds
