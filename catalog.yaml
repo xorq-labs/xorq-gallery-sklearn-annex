@@ -5,6 +5,7 @@ entries:
   - 07d766b76b0a
   - 0d1233dc1c0e
   - 0e69a6d5b925
+  - 12ee069d44b9
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -12,3 +13,4 @@ aliases:
   - plot_cv_indices-xorq_timeseriessplit_folds
   - plot_stack_predictors-xorq_stacking_preds
   - plot_classifier_comparison-xorq_circles_nearest_neighbors_preds
+  - plot_lasso_and_elasticnet-xorq_ard_preds
