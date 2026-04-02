@@ -1,0 +1,14 @@
+md5sum: 2c16658704b714b5ab9a0c4843204ae7
+backends:
+  - xorq
+expr_metadata:
+  kind: source
+  schema_out:
+    subject_id: int64
+    minibatchsparsepca0: float64
+    minibatchsparsepca1: float64
+    minibatchsparsepca2: float64
+    minibatchsparsepca3: float64
+    minibatchsparsepca4: float64
+    minibatchsparsepca5: float64
+  root_tag: FittedPipeline-transform
