@@ -114,6 +114,7 @@ entries:
   - e431c96ee9c4
   - e65c66a91470
   - e670770a6849
+  - e694c6c92108
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -235,3 +236,4 @@ aliases:
   - plot_discretization_strategies-xorq_ds1_quantile_transformed
   - plot_all_scaling-xorq_standard_transformed
   - plot_faces_decomposition-xorq_sparse_pca_transformed
+  - plot_classifier_comparison-xorq_circles_decision_tree_preds
