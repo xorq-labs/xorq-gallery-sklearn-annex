@@ -120,6 +120,7 @@ entries:
   - ebc00876206c
   - ed12df91a6db
   - ef853e32fb65
+  - ef8d2715d51d
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -247,3 +248,4 @@ aliases:
   - plot_classifier_comparison-xorq_moons_random_forest_preds
   - plot_stack_predictors-xorq_hgbt_preds
   - plot_mlp_alpha-xorq_linearly_alpha1000_preds
+  - plot_lda_qda-xorq_qda_diff_preds
