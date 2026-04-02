@@ -38,6 +38,7 @@ entries:
   - 3fbd178f5949
   - 401a04201d89
   - 40a679781602
+  - 40d7662669cf
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -81,3 +82,4 @@ aliases:
   - plot_tomography_l1_reconstruction-xorq_lasso_preds
   - plot_discretization_strategies-xorq_ds1_kmeans_transformed
   - plot_faces_decomposition-xorq_ica_transformed
+  - plot_classifier_comparison-xorq_linearly_separable_naive_bayes_preds
