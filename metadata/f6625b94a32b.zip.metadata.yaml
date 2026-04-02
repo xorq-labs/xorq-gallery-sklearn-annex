@@ -1,0 +1,14 @@
+md5sum: b2b1ff048de5b619b5bf682bb56d1f7e
+backends:
+  - xorq
+expr_metadata:
+  kind: source
+  schema_out:
+    subject_id: int64
+    factoranalysis0: float64
+    factoranalysis1: float64
+    factoranalysis2: float64
+    factoranalysis3: float64
+    factoranalysis4: float64
+    factoranalysis5: float64
+  root_tag: FittedPipeline-transform
