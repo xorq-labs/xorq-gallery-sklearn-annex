@@ -52,6 +52,7 @@ entries:
   - 5688b92edc68
   - 578ff8040e6e
   - 57b5aa95a4e0
+  - 5a3b48af8c48
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -109,3 +110,4 @@ aliases:
   - plot_compare_calibration-xorq_random_forest_proba
   - plot_classifier_comparison-xorq_linearly_separable_rbf_svm_preds
   - plot_svm_kernels-xorq_poly_preds
+  - plot_all_scaling-xorq_power_yj_transformed
