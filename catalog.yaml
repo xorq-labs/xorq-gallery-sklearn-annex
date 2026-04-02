@@ -29,6 +29,7 @@ entries:
   - 35efbaa97d33
   - 38ffbeebd6b9
   - 3a4c3ad0f2d5
+  - 3cbfcc6ce398
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -63,3 +64,4 @@ aliases:
   - plot_voting_regressor-xorq_lr_preds
   - plot_mlp_alpha-xorq_circles_alpha032_preds
   - plot_affinity_propagation-xorq_ap_preds
+  - plot_discretization_strategies-xorq_ds0_kmeans_transformed
