@@ -72,6 +72,7 @@ entries:
   - 8d92f11d5978
   - 906681c6d659
   - 955f74632447
+  - 95f93605196b
 aliases:
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_compare_calibration-xorq_naive_bayes_proba
@@ -149,3 +150,4 @@ aliases:
   - plot_kmeans_silhouette_analysis-xorq_k3_preds
   - plot_topics_extraction_with_nmf_lda-xorq_nmf_transformed
   - plot_classifier_comparison-xorq_moons_nearest_neighbors_preds
+  - plot_lda_qda-xorq_lda_diff_preds
