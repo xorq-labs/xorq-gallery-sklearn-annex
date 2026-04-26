@@ -50,6 +50,7 @@ entries:
   - 528485e9606c
   - 54b4c6cf2696
   - 54f59258b0a4
+  - 55527aad7c33
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -105,3 +106,4 @@ aliases:
   - plot_mlp_alpha-xorq_linearly_alpha316_preds
   - plot_svm_kernels-xorq_sigmoid_preds
   - plot_mlp_alpha-xorq_circles_alpha010_preds
+  - plot_topics_extraction_with_nmf_lda-xorq_lda_transformed
