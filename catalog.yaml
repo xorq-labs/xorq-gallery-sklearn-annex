@@ -55,6 +55,7 @@ entries:
   - 57b5aa95a4e0
   - 58988f4c296c
   - 5cb9d9e525ab
+  - 60844b855ce9
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -115,3 +116,4 @@ aliases:
   - plot_svm_kernels-xorq_poly_preds
   - plot_classifier_comparison-xorq_circles_neural_net_preds
   - plot_classifier_comparison-xorq_moons_decision_tree_preds
+  - plot_all_scaling-xorq_standard_transformed
