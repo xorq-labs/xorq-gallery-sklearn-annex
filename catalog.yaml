@@ -128,6 +128,7 @@ entries:
   - f4452bd7dc71
   - f6deec7974ef
   - f9f66e5ce2d0
+  - fac51f39401f
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -263,3 +264,4 @@ aliases:
   - plot_discretization_strategies-xorq_ds2_quantile_transformed
   - plot_classifier_comparison-xorq_moons_random_forest_preds
   - plot_mlp_alpha-xorq_linearly_alpha1000_preds
+  - plot_time_series_lagged_features-xorq_hgbr_preds

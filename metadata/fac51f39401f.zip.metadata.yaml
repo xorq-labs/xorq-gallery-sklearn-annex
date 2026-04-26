@@ -1,0 +1,256 @@
+md5sum: d08ddb36f6f4ed0c2108db86fd2d13e6
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    count: float64
+    pred: float64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-fac51f39401fb790ca9b7fe324e6e633
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."count",
+          _PREDICT_0E2D2B676663(
+            "t0"."lagged_count_1h",
+            "t0"."lagged_count_2h",
+            "t0"."lagged_count_3h",
+            "t0"."lagged_count_1d",
+            "t0"."lagged_count_7d",
+            "t0"."hour",
+            "t0"."weekday",
+            "t0"."month",
+            "t0"."temp",
+            "t0"."humidity",
+            "t0"."windspeed"
+          ) AS "pred"
+        FROM "ibis_pandas_memtable_5daf36daddb51bae1f35d99cb83f169f" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          count: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingRegressor'>), ('name', 'hgbr'), ('params_tuple', (('categorical_features', 'from_dtype'), ('early_stopping', 'auto'), ('interaction_cst', None), ('l2_regularization', 0.0), ('learning_rate', 0.1), ('loss', 'squared_error'), ('max_bins', 255), ('max_depth', 8), ('max_features', 1.0), ('max_iter', 200), ('max_leaf_nodes', 31), ('min_samples_leaf', 20), ('monotonic_cst', None), ('n_iter_no_change', 10), ('quantile', None), ('random_state', 42), ('scoring', 'loss'), ('tol', 1e-07), ('validation_fraction', 0.1), ('verbose', 0), ('warm_start', False))), ('features', ('lagged_count_1h', 'lagged_count_2h', 'lagged_count_3h', 'lagged_count_1d', 'lagged_count_7d', 'hour', 'weekday', 'month', 'temp', 'humidity', 'windspeed')), ('target', 'count')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingRegressor'>), ('name', 'hgbr'), ('params_tuple', (('categorical_features', 'from_dtype'), ('early_stopping', 'auto'), ('interaction_cst', None), ('l2_regularization', 0.0), ('learning_rate', 0.1), ('loss', 'squared_error'), ('max_bins', 255), ('max_depth', 8), ('max_features', 1.0), ('max_iter', 200), ('max_leaf_nodes', 31), ('min_samples_leaf', 20), ('monotonic_cst', None), ('n_iter_no_change', 10), ('quantile', None), ('random_state', 42), ('scoring', 'loss'), ('tol', 1e-07), ('validation_fraction', 0.1), ('verbose', 0), ('warm_start', False))), ('features', ('lagged_count_1h', 'lagged_count_2h', 'lagged_count_3h', 'lagged_count_1d', 'lagged_count_7d', 'hour', 'weekday', 'month', 'temp', 'humidity', 'windspeed')), ('target', 'count')),)"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          count: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingRegressor'>"
+          name: hgbr
+          params_tuple: "(('categorical_features', 'from_dtype'), ('early_stopping', 'auto'), ('interaction_cst', None), ('l2_regularization', 0.0), ('learning_rate', 0.1), ('loss', 'squared_error'), ('max_bins', 255), ('max_depth', 8), ('max_features', 1.0), ('max_iter', 200), ('max_leaf_nodes', 31), ('min_samples_leaf', 20), ('monotonic_cst', None), ('n_iter_no_change', 10), ('quantile', None), ('random_state', 42), ('scoring', 'loss'), ('tol', 1e-07), ('validation_fraction', 0.1), ('verbose', 0), ('warm_start', False))"
+          features: "('lagged_count_1h', 'lagged_count_2h', 'lagged_count_3h', 'lagged_count_1d', 'lagged_count_7d', 'hour', 'weekday', 'month', 'temp', 'humidity', 'windspeed')"
+          target: count
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          count: float64
+          pred: float64
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          lagged_count_1h: float64
+          lagged_count_2h: float64
+          lagged_count_3h: float64
+          lagged_count_1d: float64
+          lagged_count_7d: float64
+          hour: int64
+          weekday: int64
+          month: int64
+          temp: float64
+          humidity: float64
+          windspeed: float64
+          count: float64
+      - id: "4"
+        type: Field
+        label: "Field:count"
+      - id: "5"
+        type: _predict_0e2d2b676663
+        label: ExprScalarUDF
+        schema:
+          lagged_count_1h: float64
+          lagged_count_2h: float64
+          lagged_count_3h: float64
+          lagged_count_1d: float64
+          lagged_count_7d: float64
+          hour: int64
+          weekday: int64
+          month: int64
+          temp: float64
+          humidity: float64
+          windspeed: float64
+      - id: "6"
+        type: dumps_of__inner_fit_0
+        label: dumps_of__inner_fit_0
+      - id: "7"
+        type: Field
+        label: "Field:lagged_count_1h"
+      - id: "8"
+        type: Field
+        label: "Field:lagged_count_2h"
+      - id: "9"
+        type: Field
+        label: "Field:lagged_count_3h"
+      - id: "10"
+        type: Field
+        label: "Field:lagged_count_1d"
+      - id: "11"
+        type: Field
+        label: "Field:lagged_count_7d"
+      - id: "12"
+        type: Field
+        label: "Field:hour"
+      - id: "13"
+        type: Field
+        label: "Field:weekday"
+      - id: "14"
+        type: Field
+        label: "Field:month"
+      - id: "15"
+        type: Field
+        label: "Field:temp"
+      - id: "16"
+        type: Field
+        label: "Field:humidity"
+      - id: "17"
+        type: Field
+        label: "Field:windspeed"
+      - id: "18"
+        type: Field
+        label: "Field:count"
+      - id: "19"
+        type: Tag
+        label: Tag
+        schema:
+          lagged_count_1h: float64
+          lagged_count_2h: float64
+          lagged_count_3h: float64
+          lagged_count_1d: float64
+          lagged_count_7d: float64
+          hour: int64
+          weekday: int64
+          month: int64
+          temp: float64
+          humidity: float64
+          windspeed: float64
+          count: float64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: count
+          features: "('lagged_count_1h', 'lagged_count_2h', 'lagged_count_3h', 'lagged_count_1d', 'lagged_count_7d', 'hour', 'weekday', 'month', 'temp', 'humidity', 'windspeed')"
+      - id: "20"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          lagged_count_1h: float64
+          lagged_count_2h: float64
+          lagged_count_3h: float64
+          lagged_count_1d: float64
+          lagged_count_7d: float64
+          hour: int64
+          weekday: int64
+          month: int64
+          temp: float64
+          humidity: float64
+          windspeed: float64
+          count: float64
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "4"
+        - "3"
+      - - "5"
+        - "6"
+      - - "6"
+        - "7"
+      - - "6"
+        - "8"
+      - - "6"
+        - "9"
+      - - "6"
+        - "10"
+      - - "6"
+        - "11"
+      - - "6"
+        - "12"
+      - - "6"
+        - "13"
+      - - "6"
+        - "14"
+      - - "6"
+        - "15"
+      - - "6"
+        - "16"
+      - - "6"
+        - "17"
+      - - "6"
+        - "18"
+      - - "7"
+        - "19"
+      - - "8"
+        - "19"
+      - - "9"
+        - "19"
+      - - "10"
+        - "19"
+      - - "11"
+        - "19"
+      - - "12"
+        - "19"
+      - - "13"
+        - "19"
+      - - "14"
+        - "19"
+      - - "15"
+        - "19"
+      - - "16"
+        - "19"
+      - - "17"
+        - "19"
+      - - "18"
+        - "19"
+      - - "19"
+        - "20"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - hgbr
+      features:
+        - lagged_count_1h
+        - lagged_count_2h
+        - lagged_count_3h
+        - lagged_count_1d
+        - lagged_count_7d
+        - hour
+        - weekday
+        - month
+        - temp
+        - humidity
+        - windspeed
+      target: count
