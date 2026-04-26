@@ -126,6 +126,7 @@ entries:
   - ed9146cae929
   - ef8d2715d51d
   - f4452bd7dc71
+  - f6deec7974ef
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -259,3 +260,4 @@ aliases:
   - plot_classifier_comparison-xorq_linearly_separable_naive_bayes_preds
   - plot_lda_qda-xorq_qda_diff_preds
   - plot_discretization_strategies-xorq_ds2_quantile_transformed
+  - plot_classifier_comparison-xorq_moons_random_forest_preds
