@@ -60,6 +60,7 @@ entries:
   - 6b944942cabd
   - 6c0257b5bfcb
   - 6d09fe7002cd
+  - 6dc111bcc0b3
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -125,3 +126,4 @@ aliases:
   - plot_quantile_regression-xorq_pareto_q95_preds
   - plot_classification_probability-xorq_hgb_preds
   - plot_faces_decomposition-xorq_ica_transformed
+  - plot_document_classification_20newsgroups-xorq_ridge_preds
