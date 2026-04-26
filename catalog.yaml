@@ -39,6 +39,7 @@ entries:
   - 401a04201d89
   - 43d9ed7fec0e
   - 44066a7c5d35
+  - 465ddd0f722e
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -83,3 +84,4 @@ aliases:
   - plot_discretization_strategies-xorq_ds1_kmeans_transformed
   - plot_classifier_comparison-xorq_circles_adaboost_preds
   - plot_classifier_comparison-xorq_moons_naive_bayes_preds
+  - plot_classifier_comparison-xorq_linearly_separable_adaboost_preds
