@@ -1,0 +1,1443 @@
+md5sum: ae6d51c37e6a4abc609674268284698a
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    target: float64
+    time_step: float64
+    row_idx: int64
+    pred: float64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-46f90e951f53df8ce501a904ec5fe443
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."target",
+          "t0"."time_step",
+          "t0"."row_idx",
+          _PREDICT_1DB11124E027(
+            "t0"."feature_0",
+            "t0"."feature_1",
+            "t0"."feature_2",
+            "t0"."feature_3",
+            "t0"."feature_4",
+            "t0"."feature_5",
+            "t0"."feature_6",
+            "t0"."feature_7",
+            "t0"."feature_8",
+            "t0"."feature_9",
+            "t0"."feature_10",
+            "t0"."feature_11",
+            "t0"."feature_12",
+            "t0"."feature_13",
+            "t0"."feature_14",
+            "t0"."feature_15",
+            "t0"."feature_16",
+            "t0"."feature_17",
+            "t0"."feature_18",
+            "t0"."feature_19",
+            "t0"."feature_20",
+            "t0"."feature_21",
+            "t0"."feature_22",
+            "t0"."feature_23",
+            "t0"."feature_24",
+            "t0"."feature_25",
+            "t0"."feature_26",
+            "t0"."feature_27",
+            "t0"."feature_28",
+            "t0"."feature_29",
+            "t0"."feature_30",
+            "t0"."feature_31",
+            "t0"."feature_32",
+            "t0"."feature_33",
+            "t0"."feature_34",
+            "t0"."feature_35",
+            "t0"."feature_36",
+            "t0"."feature_37",
+            "t0"."feature_38",
+            "t0"."feature_39",
+            "t0"."feature_40",
+            "t0"."feature_41",
+            "t0"."feature_42",
+            "t0"."feature_43",
+            "t0"."feature_44",
+            "t0"."feature_45",
+            "t0"."feature_46",
+            "t0"."feature_47",
+            "t0"."feature_48",
+            "t0"."feature_49",
+            "t0"."feature_50",
+            "t0"."feature_51",
+            "t0"."feature_52",
+            "t0"."feature_53",
+            "t0"."feature_54",
+            "t0"."feature_55",
+            "t0"."feature_56",
+            "t0"."feature_57",
+            "t0"."feature_58",
+            "t0"."feature_59",
+            "t0"."feature_60",
+            "t0"."feature_61",
+            "t0"."feature_62",
+            "t0"."feature_63",
+            "t0"."feature_64",
+            "t0"."feature_65",
+            "t0"."feature_66",
+            "t0"."feature_67",
+            "t0"."feature_68",
+            "t0"."feature_69",
+            "t0"."feature_70",
+            "t0"."feature_71",
+            "t0"."feature_72",
+            "t0"."feature_73",
+            "t0"."feature_74",
+            "t0"."feature_75",
+            "t0"."feature_76",
+            "t0"."feature_77",
+            "t0"."feature_78",
+            "t0"."feature_79",
+            "t0"."feature_80",
+            "t0"."feature_81",
+            "t0"."feature_82",
+            "t0"."feature_83",
+            "t0"."feature_84",
+            "t0"."feature_85",
+            "t0"."feature_86",
+            "t0"."feature_87",
+            "t0"."feature_88",
+            "t0"."feature_89",
+            "t0"."feature_90",
+            "t0"."feature_91",
+            "t0"."feature_92",
+            "t0"."feature_93",
+            "t0"."feature_94",
+            "t0"."feature_95",
+            "t0"."feature_96",
+            "t0"."feature_97",
+            "t0"."feature_98",
+            "t0"."feature_99"
+          ) AS "pred"
+        FROM "ibis_pandas_memtable_af408e6ded29ce571b674489f52699d2" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          target: float64
+          time_step: float64
+          row_idx: int64
+          pred: float64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.linear_model._coordinate_descent.ElasticNet'>), ('name', 'elasticnet'), ('params_tuple', (('alpha', 0.08), ('copy_X', True), ('fit_intercept', True), ('l1_ratio', 0.5), ('max_iter', 1000), ('positive', False), ('precompute', False), ('random_state', None), ('selection', 'cyclic'), ('tol', 0.0001), ('warm_start', False))), ('features', ('feature_0', 'feature_1', 'feature_2', 'feature_3', 'feature_4', 'feature_5', 'feature_6', 'feature_7', 'feature_8', 'feature_9', 'feature_10', 'feature_11', 'feature_12', 'feature_13', 'feature_14', 'feature_15', 'feature_16', 'feature_17', 'feature_18', 'feature_19', 'feature_20', 'feature_21', 'feature_22', 'feature_23', 'feature_24', 'feature_25', 'feature_26', 'feature_27', 'feature_28', 'feature_29', 'feature_30', 'feature_31', 'feature_32', 'feature_33', 'feature_34', 'feature_35', 'feature_36', 'feature_37', 'feature_38', 'feature_39', 'feature_40', 'feature_41', 'feature_42', 'feature_43', 'feature_44', 'feature_45', 'feature_46', 'feature_47', 'feature_48', 'feature_49', 'feature_50', 'feature_51', 'feature_52', 'feature_53', 'feature_54', 'feature_55', 'feature_56', 'feature_57', 'feature_58', 'feature_59', 'feature_60', 'feature_61', 'feature_62', 'feature_63', 'feature_64', 'feature_65', 'feature_66', 'feature_67', 'feature_68', 'feature_69', 'feature_70', 'feature_71', 'feature_72', 'feature_73', 'feature_74', 'feature_75', 'feature_76', 'feature_77', 'feature_78', 'feature_79', 'feature_80', 'feature_81', 'feature_82', 'feature_83', 'feature_84', 'feature_85', 'feature_86', 'feature_87', 'feature_88', 'feature_89', 'feature_90', 'feature_91', 'feature_92', 'feature_93', 'feature_94', 'feature_95', 'feature_96', 'feature_97', 'feature_98', 'feature_99')), ('target', 'target')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.linear_model._coordinate_descent.ElasticNet'>), ('name', 'elasticnet'), ('params_tuple', (('alpha', 0.08), ('copy_X', True), ('fit_intercept', True), ('l1_ratio', 0.5), ('max_iter', 1000), ('positive', False), ('precompute', False), ('random_state', None), ('selection', 'cyclic'), ('tol', 0.0001), ('warm_start', False))), ('features', ('feature_0', 'feature_1', 'feature_2', 'feature_3', 'feature_4', 'feature_5', 'feature_6', 'feature_7', 'feature_8', 'feature_9', 'feature_10', 'feature_11', 'feature_12', 'feature_13', 'feature_14', 'feature_15', 'feature_16', 'feature_17', 'feature_18', 'feature_19', 'feature_20', 'feature_21', 'feature_22', 'feature_23', 'feature_24', 'feature_25', 'feature_26', 'feature_27', 'feature_28', 'feature_29', 'feature_30', 'feature_31', 'feature_32', 'feature_33', 'feature_34', 'feature_35', 'feature_36', 'feature_37', 'feature_38', 'feature_39', 'feature_40', 'feature_41', 'feature_42', 'feature_43', 'feature_44', 'feature_45', 'feature_46', 'feature_47', 'feature_48', 'feature_49', 'feature_50', 'feature_51', 'feature_52', 'feature_53', 'feature_54', 'feature_55', 'feature_56', 'feature_57', 'feature_58', 'feature_59', 'feature_60', 'feature_61', 'feature_62', 'feature_63', 'feature_64', 'feature_65', 'feature_66', 'feature_67', 'feature_68', 'feature_69', 'feature_70', 'feature_71', 'feature_72', 'feature_73', 'feature_74', 'feature_75', 'feature_76', 'feature_77', 'feature_78', 'feature_79', 'feature_80', 'feature_81', 'feature_82', 'feature_83', 'feature_84', 'feature_85', 'feature_86', 'feature_87', 'feature_88', 'feature_89', 'feature_90', 'feature_91', 'feature_92', 'feature_93', 'feature_94', 'feature_95', 'feature_96', 'feature_97', 'feature_98', 'feature_99')), ('target', 'target')),)"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          target: float64
+          time_step: float64
+          row_idx: int64
+          pred: float64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.linear_model._coordinate_descent.ElasticNet'>"
+          name: elasticnet
+          params_tuple: "(('alpha', 0.08), ('copy_X', True), ('fit_intercept', True), ('l1_ratio', 0.5), ('max_iter', 1000), ('positive', False), ('precompute', False), ('random_state', None), ('selection', 'cyclic'), ('tol', 0.0001), ('warm_start', False))"
+          features: "('feature_0', 'feature_1', 'feature_2', 'feature_3', 'feature_4', 'feature_5', 'feature_6', 'feature_7', 'feature_8', 'feature_9', 'feature_10', 'feature_11', 'feature_12', 'feature_13', 'feature_14', 'feature_15', 'feature_16', 'feature_17', 'feature_18', 'feature_19', 'feature_20', 'feature_21', 'feature_22', 'feature_23', 'feature_24', 'feature_25', 'feature_26', 'feature_27', 'feature_28', 'feature_29', 'feature_30', 'feature_31', 'feature_32', 'feature_33', 'feature_34', 'feature_35', 'feature_36', 'feature_37', 'feature_38', 'feature_39', 'feature_40', 'feature_41', 'feature_42', 'feature_43', 'feature_44', 'feature_45', 'feature_46', 'feature_47', 'feature_48', 'feature_49', 'feature_50', 'feature_51', 'feature_52', 'feature_53', 'feature_54', 'feature_55', 'feature_56', 'feature_57', 'feature_58', 'feature_59', 'feature_60', 'feature_61', 'feature_62', 'feature_63', 'feature_64', 'feature_65', 'feature_66', 'feature_67', 'feature_68', 'feature_69', 'feature_70', 'feature_71', 'feature_72', 'feature_73', 'feature_74', 'feature_75', 'feature_76', 'feature_77', 'feature_78', 'feature_79', 'feature_80', 'feature_81', 'feature_82', 'feature_83', 'feature_84', 'feature_85', 'feature_86', 'feature_87', 'feature_88', 'feature_89', 'feature_90', 'feature_91', 'feature_92', 'feature_93', 'feature_94', 'feature_95', 'feature_96', 'feature_97', 'feature_98', 'feature_99')"
+          target: target
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          target: float64
+          time_step: float64
+          row_idx: int64
+          pred: float64
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          feature_0: float64
+          feature_1: float64
+          feature_2: float64
+          feature_3: float64
+          feature_4: float64
+          feature_5: float64
+          feature_6: float64
+          feature_7: float64
+          feature_8: float64
+          feature_9: float64
+          feature_10: float64
+          feature_11: float64
+          feature_12: float64
+          feature_13: float64
+          feature_14: float64
+          feature_15: float64
+          feature_16: float64
+          feature_17: float64
+          feature_18: float64
+          feature_19: float64
+          feature_20: float64
+          feature_21: float64
+          feature_22: float64
+          feature_23: float64
+          feature_24: float64
+          feature_25: float64
+          feature_26: float64
+          feature_27: float64
+          feature_28: float64
+          feature_29: float64
+          feature_30: float64
+          feature_31: float64
+          feature_32: float64
+          feature_33: float64
+          feature_34: float64
+          feature_35: float64
+          feature_36: float64
+          feature_37: float64
+          feature_38: float64
+          feature_39: float64
+          feature_40: float64
+          feature_41: float64
+          feature_42: float64
+          feature_43: float64
+          feature_44: float64
+          feature_45: float64
+          feature_46: float64
+          feature_47: float64
+          feature_48: float64
+          feature_49: float64
+          feature_50: float64
+          feature_51: float64
+          feature_52: float64
+          feature_53: float64
+          feature_54: float64
+          feature_55: float64
+          feature_56: float64
+          feature_57: float64
+          feature_58: float64
+          feature_59: float64
+          feature_60: float64
+          feature_61: float64
+          feature_62: float64
+          feature_63: float64
+          feature_64: float64
+          feature_65: float64
+          feature_66: float64
+          feature_67: float64
+          feature_68: float64
+          feature_69: float64
+          feature_70: float64
+          feature_71: float64
+          feature_72: float64
+          feature_73: float64
+          feature_74: float64
+          feature_75: float64
+          feature_76: float64
+          feature_77: float64
+          feature_78: float64
+          feature_79: float64
+          feature_80: float64
+          feature_81: float64
+          feature_82: float64
+          feature_83: float64
+          feature_84: float64
+          feature_85: float64
+          feature_86: float64
+          feature_87: float64
+          feature_88: float64
+          feature_89: float64
+          feature_90: float64
+          feature_91: float64
+          feature_92: float64
+          feature_93: float64
+          feature_94: float64
+          feature_95: float64
+          feature_96: float64
+          feature_97: float64
+          feature_98: float64
+          feature_99: float64
+          target: float64
+          time_step: float64
+          row_idx: int64
+      - id: "4"
+        type: Field
+        label: "Field:target"
+      - id: "5"
+        type: Field
+        label: "Field:time_step"
+      - id: "6"
+        type: Field
+        label: "Field:row_idx"
+      - id: "7"
+        type: _predict_1db11124e027
+        label: ExprScalarUDF
+        schema:
+          feature_0: float64
+          feature_1: float64
+          feature_2: float64
+          feature_3: float64
+          feature_4: float64
+          feature_5: float64
+          feature_6: float64
+          feature_7: float64
+          feature_8: float64
+          feature_9: float64
+          feature_10: float64
+          feature_11: float64
+          feature_12: float64
+          feature_13: float64
+          feature_14: float64
+          feature_15: float64
+          feature_16: float64
+          feature_17: float64
+          feature_18: float64
+          feature_19: float64
+          feature_20: float64
+          feature_21: float64
+          feature_22: float64
+          feature_23: float64
+          feature_24: float64
+          feature_25: float64
+          feature_26: float64
+          feature_27: float64
+          feature_28: float64
+          feature_29: float64
+          feature_30: float64
+          feature_31: float64
+          feature_32: float64
+          feature_33: float64
+          feature_34: float64
+          feature_35: float64
+          feature_36: float64
+          feature_37: float64
+          feature_38: float64
+          feature_39: float64
+          feature_40: float64
+          feature_41: float64
+          feature_42: float64
+          feature_43: float64
+          feature_44: float64
+          feature_45: float64
+          feature_46: float64
+          feature_47: float64
+          feature_48: float64
+          feature_49: float64
+          feature_50: float64
+          feature_51: float64
+          feature_52: float64
+          feature_53: float64
+          feature_54: float64
+          feature_55: float64
+          feature_56: float64
+          feature_57: float64
+          feature_58: float64
+          feature_59: float64
+          feature_60: float64
+          feature_61: float64
+          feature_62: float64
+          feature_63: float64
+          feature_64: float64
+          feature_65: float64
+          feature_66: float64
+          feature_67: float64
+          feature_68: float64
+          feature_69: float64
+          feature_70: float64
+          feature_71: float64
+          feature_72: float64
+          feature_73: float64
+          feature_74: float64
+          feature_75: float64
+          feature_76: float64
+          feature_77: float64
+          feature_78: float64
+          feature_79: float64
+          feature_80: float64
+          feature_81: float64
+          feature_82: float64
+          feature_83: float64
+          feature_84: float64
+          feature_85: float64
+          feature_86: float64
+          feature_87: float64
+          feature_88: float64
+          feature_89: float64
+          feature_90: float64
+          feature_91: float64
+          feature_92: float64
+          feature_93: float64
+          feature_94: float64
+          feature_95: float64
+          feature_96: float64
+          feature_97: float64
+          feature_98: float64
+          feature_99: float64
+      - id: "8"
+        type: dumps_of__inner_fit_2
+        label: dumps_of__inner_fit_2
+      - id: "9"
+        type: Field
+        label: "Field:feature_0"
+      - id: "10"
+        type: Field
+        label: "Field:feature_1"
+      - id: "11"
+        type: Field
+        label: "Field:feature_2"
+      - id: "12"
+        type: Field
+        label: "Field:feature_3"
+      - id: "13"
+        type: Field
+        label: "Field:feature_4"
+      - id: "14"
+        type: Field
+        label: "Field:feature_5"
+      - id: "15"
+        type: Field
+        label: "Field:feature_6"
+      - id: "16"
+        type: Field
+        label: "Field:feature_7"
+      - id: "17"
+        type: Field
+        label: "Field:feature_8"
+      - id: "18"
+        type: Field
+        label: "Field:feature_9"
+      - id: "19"
+        type: Field
+        label: "Field:feature_10"
+      - id: "20"
+        type: Field
+        label: "Field:feature_11"
+      - id: "21"
+        type: Field
+        label: "Field:feature_12"
+      - id: "22"
+        type: Field
+        label: "Field:feature_13"
+      - id: "23"
+        type: Field
+        label: "Field:feature_14"
+      - id: "24"
+        type: Field
+        label: "Field:feature_15"
+      - id: "25"
+        type: Field
+        label: "Field:feature_16"
+      - id: "26"
+        type: Field
+        label: "Field:feature_17"
+      - id: "27"
+        type: Field
+        label: "Field:feature_18"
+      - id: "28"
+        type: Field
+        label: "Field:feature_19"
+      - id: "29"
+        type: Field
+        label: "Field:feature_20"
+      - id: "30"
+        type: Field
+        label: "Field:feature_21"
+      - id: "31"
+        type: Field
+        label: "Field:feature_22"
+      - id: "32"
+        type: Field
+        label: "Field:feature_23"
+      - id: "33"
+        type: Field
+        label: "Field:feature_24"
+      - id: "34"
+        type: Field
+        label: "Field:feature_25"
+      - id: "35"
+        type: Field
+        label: "Field:feature_26"
+      - id: "36"
+        type: Field
+        label: "Field:feature_27"
+      - id: "37"
+        type: Field
+        label: "Field:feature_28"
+      - id: "38"
+        type: Field
+        label: "Field:feature_29"
+      - id: "39"
+        type: Field
+        label: "Field:feature_30"
+      - id: "40"
+        type: Field
+        label: "Field:feature_31"
+      - id: "41"
+        type: Field
+        label: "Field:feature_32"
+      - id: "42"
+        type: Field
+        label: "Field:feature_33"
+      - id: "43"
+        type: Field
+        label: "Field:feature_34"
+      - id: "44"
+        type: Field
+        label: "Field:feature_35"
+      - id: "45"
+        type: Field
+        label: "Field:feature_36"
+      - id: "46"
+        type: Field
+        label: "Field:feature_37"
+      - id: "47"
+        type: Field
+        label: "Field:feature_38"
+      - id: "48"
+        type: Field
+        label: "Field:feature_39"
+      - id: "49"
+        type: Field
+        label: "Field:feature_40"
+      - id: "50"
+        type: Field
+        label: "Field:feature_41"
+      - id: "51"
+        type: Field
+        label: "Field:feature_42"
+      - id: "52"
+        type: Field
+        label: "Field:feature_43"
+      - id: "53"
+        type: Field
+        label: "Field:feature_44"
+      - id: "54"
+        type: Field
+        label: "Field:feature_45"
+      - id: "55"
+        type: Field
+        label: "Field:feature_46"
+      - id: "56"
+        type: Field
+        label: "Field:feature_47"
+      - id: "57"
+        type: Field
+        label: "Field:feature_48"
+      - id: "58"
+        type: Field
+        label: "Field:feature_49"
+      - id: "59"
+        type: Field
+        label: "Field:feature_50"
+      - id: "60"
+        type: Field
+        label: "Field:feature_51"
+      - id: "61"
+        type: Field
+        label: "Field:feature_52"
+      - id: "62"
+        type: Field
+        label: "Field:feature_53"
+      - id: "63"
+        type: Field
+        label: "Field:feature_54"
+      - id: "64"
+        type: Field
+        label: "Field:feature_55"
+      - id: "65"
+        type: Field
+        label: "Field:feature_56"
+      - id: "66"
+        type: Field
+        label: "Field:feature_57"
+      - id: "67"
+        type: Field
+        label: "Field:feature_58"
+      - id: "68"
+        type: Field
+        label: "Field:feature_59"
+      - id: "69"
+        type: Field
+        label: "Field:feature_60"
+      - id: "70"
+        type: Field
+        label: "Field:feature_61"
+      - id: "71"
+        type: Field
+        label: "Field:feature_62"
+      - id: "72"
+        type: Field
+        label: "Field:feature_63"
+      - id: "73"
+        type: Field
+        label: "Field:feature_64"
+      - id: "74"
+        type: Field
+        label: "Field:feature_65"
+      - id: "75"
+        type: Field
+        label: "Field:feature_66"
+      - id: "76"
+        type: Field
+        label: "Field:feature_67"
+      - id: "77"
+        type: Field
+        label: "Field:feature_68"
+      - id: "78"
+        type: Field
+        label: "Field:feature_69"
+      - id: "79"
+        type: Field
+        label: "Field:feature_70"
+      - id: "80"
+        type: Field
+        label: "Field:feature_71"
+      - id: "81"
+        type: Field
+        label: "Field:feature_72"
+      - id: "82"
+        type: Field
+        label: "Field:feature_73"
+      - id: "83"
+        type: Field
+        label: "Field:feature_74"
+      - id: "84"
+        type: Field
+        label: "Field:feature_75"
+      - id: "85"
+        type: Field
+        label: "Field:feature_76"
+      - id: "86"
+        type: Field
+        label: "Field:feature_77"
+      - id: "87"
+        type: Field
+        label: "Field:feature_78"
+      - id: "88"
+        type: Field
+        label: "Field:feature_79"
+      - id: "89"
+        type: Field
+        label: "Field:feature_80"
+      - id: "90"
+        type: Field
+        label: "Field:feature_81"
+      - id: "91"
+        type: Field
+        label: "Field:feature_82"
+      - id: "92"
+        type: Field
+        label: "Field:feature_83"
+      - id: "93"
+        type: Field
+        label: "Field:feature_84"
+      - id: "94"
+        type: Field
+        label: "Field:feature_85"
+      - id: "95"
+        type: Field
+        label: "Field:feature_86"
+      - id: "96"
+        type: Field
+        label: "Field:feature_87"
+      - id: "97"
+        type: Field
+        label: "Field:feature_88"
+      - id: "98"
+        type: Field
+        label: "Field:feature_89"
+      - id: "99"
+        type: Field
+        label: "Field:feature_90"
+      - id: "100"
+        type: Field
+        label: "Field:feature_91"
+      - id: "101"
+        type: Field
+        label: "Field:feature_92"
+      - id: "102"
+        type: Field
+        label: "Field:feature_93"
+      - id: "103"
+        type: Field
+        label: "Field:feature_94"
+      - id: "104"
+        type: Field
+        label: "Field:feature_95"
+      - id: "105"
+        type: Field
+        label: "Field:feature_96"
+      - id: "106"
+        type: Field
+        label: "Field:feature_97"
+      - id: "107"
+        type: Field
+        label: "Field:feature_98"
+      - id: "108"
+        type: Field
+        label: "Field:feature_99"
+      - id: "109"
+        type: Field
+        label: "Field:target"
+      - id: "110"
+        type: Tag
+        label: Tag
+        schema:
+          feature_0: float64
+          feature_1: float64
+          feature_2: float64
+          feature_3: float64
+          feature_4: float64
+          feature_5: float64
+          feature_6: float64
+          feature_7: float64
+          feature_8: float64
+          feature_9: float64
+          feature_10: float64
+          feature_11: float64
+          feature_12: float64
+          feature_13: float64
+          feature_14: float64
+          feature_15: float64
+          feature_16: float64
+          feature_17: float64
+          feature_18: float64
+          feature_19: float64
+          feature_20: float64
+          feature_21: float64
+          feature_22: float64
+          feature_23: float64
+          feature_24: float64
+          feature_25: float64
+          feature_26: float64
+          feature_27: float64
+          feature_28: float64
+          feature_29: float64
+          feature_30: float64
+          feature_31: float64
+          feature_32: float64
+          feature_33: float64
+          feature_34: float64
+          feature_35: float64
+          feature_36: float64
+          feature_37: float64
+          feature_38: float64
+          feature_39: float64
+          feature_40: float64
+          feature_41: float64
+          feature_42: float64
+          feature_43: float64
+          feature_44: float64
+          feature_45: float64
+          feature_46: float64
+          feature_47: float64
+          feature_48: float64
+          feature_49: float64
+          feature_50: float64
+          feature_51: float64
+          feature_52: float64
+          feature_53: float64
+          feature_54: float64
+          feature_55: float64
+          feature_56: float64
+          feature_57: float64
+          feature_58: float64
+          feature_59: float64
+          feature_60: float64
+          feature_61: float64
+          feature_62: float64
+          feature_63: float64
+          feature_64: float64
+          feature_65: float64
+          feature_66: float64
+          feature_67: float64
+          feature_68: float64
+          feature_69: float64
+          feature_70: float64
+          feature_71: float64
+          feature_72: float64
+          feature_73: float64
+          feature_74: float64
+          feature_75: float64
+          feature_76: float64
+          feature_77: float64
+          feature_78: float64
+          feature_79: float64
+          feature_80: float64
+          feature_81: float64
+          feature_82: float64
+          feature_83: float64
+          feature_84: float64
+          feature_85: float64
+          feature_86: float64
+          feature_87: float64
+          feature_88: float64
+          feature_89: float64
+          feature_90: float64
+          feature_91: float64
+          feature_92: float64
+          feature_93: float64
+          feature_94: float64
+          feature_95: float64
+          feature_96: float64
+          feature_97: float64
+          feature_98: float64
+          feature_99: float64
+          target: float64
+          time_step: float64
+          row_idx: int64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: target
+          features: "('feature_0', 'feature_1', 'feature_2', 'feature_3', 'feature_4', 'feature_5', 'feature_6', 'feature_7', 'feature_8', 'feature_9', 'feature_10', 'feature_11', 'feature_12', 'feature_13', 'feature_14', 'feature_15', 'feature_16', 'feature_17', 'feature_18', 'feature_19', 'feature_20', 'feature_21', 'feature_22', 'feature_23', 'feature_24', 'feature_25', 'feature_26', 'feature_27', 'feature_28', 'feature_29', 'feature_30', 'feature_31', 'feature_32', 'feature_33', 'feature_34', 'feature_35', 'feature_36', 'feature_37', 'feature_38', 'feature_39', 'feature_40', 'feature_41', 'feature_42', 'feature_43', 'feature_44', 'feature_45', 'feature_46', 'feature_47', 'feature_48', 'feature_49', 'feature_50', 'feature_51', 'feature_52', 'feature_53', 'feature_54', 'feature_55', 'feature_56', 'feature_57', 'feature_58', 'feature_59', 'feature_60', 'feature_61', 'feature_62', 'feature_63', 'feature_64', 'feature_65', 'feature_66', 'feature_67', 'feature_68', 'feature_69', 'feature_70', 'feature_71', 'feature_72', 'feature_73', 'feature_74', 'feature_75', 'feature_76', 'feature_77', 'feature_78', 'feature_79', 'feature_80', 'feature_81', 'feature_82', 'feature_83', 'feature_84', 'feature_85', 'feature_86', 'feature_87', 'feature_88', 'feature_89', 'feature_90', 'feature_91', 'feature_92', 'feature_93', 'feature_94', 'feature_95', 'feature_96', 'feature_97', 'feature_98', 'feature_99')"
+      - id: "111"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          feature_0: float64
+          feature_1: float64
+          feature_2: float64
+          feature_3: float64
+          feature_4: float64
+          feature_5: float64
+          feature_6: float64
+          feature_7: float64
+          feature_8: float64
+          feature_9: float64
+          feature_10: float64
+          feature_11: float64
+          feature_12: float64
+          feature_13: float64
+          feature_14: float64
+          feature_15: float64
+          feature_16: float64
+          feature_17: float64
+          feature_18: float64
+          feature_19: float64
+          feature_20: float64
+          feature_21: float64
+          feature_22: float64
+          feature_23: float64
+          feature_24: float64
+          feature_25: float64
+          feature_26: float64
+          feature_27: float64
+          feature_28: float64
+          feature_29: float64
+          feature_30: float64
+          feature_31: float64
+          feature_32: float64
+          feature_33: float64
+          feature_34: float64
+          feature_35: float64
+          feature_36: float64
+          feature_37: float64
+          feature_38: float64
+          feature_39: float64
+          feature_40: float64
+          feature_41: float64
+          feature_42: float64
+          feature_43: float64
+          feature_44: float64
+          feature_45: float64
+          feature_46: float64
+          feature_47: float64
+          feature_48: float64
+          feature_49: float64
+          feature_50: float64
+          feature_51: float64
+          feature_52: float64
+          feature_53: float64
+          feature_54: float64
+          feature_55: float64
+          feature_56: float64
+          feature_57: float64
+          feature_58: float64
+          feature_59: float64
+          feature_60: float64
+          feature_61: float64
+          feature_62: float64
+          feature_63: float64
+          feature_64: float64
+          feature_65: float64
+          feature_66: float64
+          feature_67: float64
+          feature_68: float64
+          feature_69: float64
+          feature_70: float64
+          feature_71: float64
+          feature_72: float64
+          feature_73: float64
+          feature_74: float64
+          feature_75: float64
+          feature_76: float64
+          feature_77: float64
+          feature_78: float64
+          feature_79: float64
+          feature_80: float64
+          feature_81: float64
+          feature_82: float64
+          feature_83: float64
+          feature_84: float64
+          feature_85: float64
+          feature_86: float64
+          feature_87: float64
+          feature_88: float64
+          feature_89: float64
+          feature_90: float64
+          feature_91: float64
+          feature_92: float64
+          feature_93: float64
+          feature_94: float64
+          feature_95: float64
+          feature_96: float64
+          feature_97: float64
+          feature_98: float64
+          feature_99: float64
+          target: float64
+          time_step: float64
+          row_idx: int64
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "2"
+        - "6"
+      - - "2"
+        - "7"
+      - - "4"
+        - "3"
+      - - "5"
+        - "3"
+      - - "6"
+        - "3"
+      - - "7"
+        - "8"
+      - - "8"
+        - "9"
+      - - "8"
+        - "10"
+      - - "8"
+        - "11"
+      - - "8"
+        - "12"
+      - - "8"
+        - "13"
+      - - "8"
+        - "14"
+      - - "8"
+        - "15"
+      - - "8"
+        - "16"
+      - - "8"
+        - "17"
+      - - "8"
+        - "18"
+      - - "8"
+        - "19"
+      - - "8"
+        - "20"
+      - - "8"
+        - "21"
+      - - "8"
+        - "22"
+      - - "8"
+        - "23"
+      - - "8"
+        - "24"
+      - - "8"
+        - "25"
+      - - "8"
+        - "26"
+      - - "8"
+        - "27"
+      - - "8"
+        - "28"
+      - - "8"
+        - "29"
+      - - "8"
+        - "30"
+      - - "8"
+        - "31"
+      - - "8"
+        - "32"
+      - - "8"
+        - "33"
+      - - "8"
+        - "34"
+      - - "8"
+        - "35"
+      - - "8"
+        - "36"
+      - - "8"
+        - "37"
+      - - "8"
+        - "38"
+      - - "8"
+        - "39"
+      - - "8"
+        - "40"
+      - - "8"
+        - "41"
+      - - "8"
+        - "42"
+      - - "8"
+        - "43"
+      - - "8"
+        - "44"
+      - - "8"
+        - "45"
+      - - "8"
+        - "46"
+      - - "8"
+        - "47"
+      - - "8"
+        - "48"
+      - - "8"
+        - "49"
+      - - "8"
+        - "50"
+      - - "8"
+        - "51"
+      - - "8"
+        - "52"
+      - - "8"
+        - "53"
+      - - "8"
+        - "54"
+      - - "8"
+        - "55"
+      - - "8"
+        - "56"
+      - - "8"
+        - "57"
+      - - "8"
+        - "58"
+      - - "8"
+        - "59"
+      - - "8"
+        - "60"
+      - - "8"
+        - "61"
+      - - "8"
+        - "62"
+      - - "8"
+        - "63"
+      - - "8"
+        - "64"
+      - - "8"
+        - "65"
+      - - "8"
+        - "66"
+      - - "8"
+        - "67"
+      - - "8"
+        - "68"
+      - - "8"
+        - "69"
+      - - "8"
+        - "70"
+      - - "8"
+        - "71"
+      - - "8"
+        - "72"
+      - - "8"
+        - "73"
+      - - "8"
+        - "74"
+      - - "8"
+        - "75"
+      - - "8"
+        - "76"
+      - - "8"
+        - "77"
+      - - "8"
+        - "78"
+      - - "8"
+        - "79"
+      - - "8"
+        - "80"
+      - - "8"
+        - "81"
+      - - "8"
+        - "82"
+      - - "8"
+        - "83"
+      - - "8"
+        - "84"
+      - - "8"
+        - "85"
+      - - "8"
+        - "86"
+      - - "8"
+        - "87"
+      - - "8"
+        - "88"
+      - - "8"
+        - "89"
+      - - "8"
+        - "90"
+      - - "8"
+        - "91"
+      - - "8"
+        - "92"
+      - - "8"
+        - "93"
+      - - "8"
+        - "94"
+      - - "8"
+        - "95"
+      - - "8"
+        - "96"
+      - - "8"
+        - "97"
+      - - "8"
+        - "98"
+      - - "8"
+        - "99"
+      - - "8"
+        - "100"
+      - - "8"
+        - "101"
+      - - "8"
+        - "102"
+      - - "8"
+        - "103"
+      - - "8"
+        - "104"
+      - - "8"
+        - "105"
+      - - "8"
+        - "106"
+      - - "8"
+        - "107"
+      - - "8"
+        - "108"
+      - - "8"
+        - "109"
+      - - "9"
+        - "110"
+      - - "10"
+        - "110"
+      - - "11"
+        - "110"
+      - - "12"
+        - "110"
+      - - "13"
+        - "110"
+      - - "14"
+        - "110"
+      - - "15"
+        - "110"
+      - - "16"
+        - "110"
+      - - "17"
+        - "110"
+      - - "18"
+        - "110"
+      - - "19"
+        - "110"
+      - - "20"
+        - "110"
+      - - "21"
+        - "110"
+      - - "22"
+        - "110"
+      - - "23"
+        - "110"
+      - - "24"
+        - "110"
+      - - "25"
+        - "110"
+      - - "26"
+        - "110"
+      - - "27"
+        - "110"
+      - - "28"
+        - "110"
+      - - "29"
+        - "110"
+      - - "30"
+        - "110"
+      - - "31"
+        - "110"
+      - - "32"
+        - "110"
+      - - "33"
+        - "110"
+      - - "34"
+        - "110"
+      - - "35"
+        - "110"
+      - - "36"
+        - "110"
+      - - "37"
+        - "110"
+      - - "38"
+        - "110"
+      - - "39"
+        - "110"
+      - - "40"
+        - "110"
+      - - "41"
+        - "110"
+      - - "42"
+        - "110"
+      - - "43"
+        - "110"
+      - - "44"
+        - "110"
+      - - "45"
+        - "110"
+      - - "46"
+        - "110"
+      - - "47"
+        - "110"
+      - - "48"
+        - "110"
+      - - "49"
+        - "110"
+      - - "50"
+        - "110"
+      - - "51"
+        - "110"
+      - - "52"
+        - "110"
+      - - "53"
+        - "110"
+      - - "54"
+        - "110"
+      - - "55"
+        - "110"
+      - - "56"
+        - "110"
+      - - "57"
+        - "110"
+      - - "58"
+        - "110"
+      - - "59"
+        - "110"
+      - - "60"
+        - "110"
+      - - "61"
+        - "110"
+      - - "62"
+        - "110"
+      - - "63"
+        - "110"
+      - - "64"
+        - "110"
+      - - "65"
+        - "110"
+      - - "66"
+        - "110"
+      - - "67"
+        - "110"
+      - - "68"
+        - "110"
+      - - "69"
+        - "110"
+      - - "70"
+        - "110"
+      - - "71"
+        - "110"
+      - - "72"
+        - "110"
+      - - "73"
+        - "110"
+      - - "74"
+        - "110"
+      - - "75"
+        - "110"
+      - - "76"
+        - "110"
+      - - "77"
+        - "110"
+      - - "78"
+        - "110"
+      - - "79"
+        - "110"
+      - - "80"
+        - "110"
+      - - "81"
+        - "110"
+      - - "82"
+        - "110"
+      - - "83"
+        - "110"
+      - - "84"
+        - "110"
+      - - "85"
+        - "110"
+      - - "86"
+        - "110"
+      - - "87"
+        - "110"
+      - - "88"
+        - "110"
+      - - "89"
+        - "110"
+      - - "90"
+        - "110"
+      - - "91"
+        - "110"
+      - - "92"
+        - "110"
+      - - "93"
+        - "110"
+      - - "94"
+        - "110"
+      - - "95"
+        - "110"
+      - - "96"
+        - "110"
+      - - "97"
+        - "110"
+      - - "98"
+        - "110"
+      - - "99"
+        - "110"
+      - - "100"
+        - "110"
+      - - "101"
+        - "110"
+      - - "102"
+        - "110"
+      - - "103"
+        - "110"
+      - - "104"
+        - "110"
+      - - "105"
+        - "110"
+      - - "106"
+        - "110"
+      - - "107"
+        - "110"
+      - - "108"
+        - "110"
+      - - "109"
+        - "110"
+      - - "110"
+        - "111"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - elasticnet
+      features:
+        - feature_0
+        - feature_1
+        - feature_2
+        - feature_3
+        - feature_4
+        - feature_5
+        - feature_6
+        - feature_7
+        - feature_8
+        - feature_9
+        - feature_10
+        - feature_11
+        - feature_12
+        - feature_13
+        - feature_14
+        - feature_15
+        - feature_16
+        - feature_17
+        - feature_18
+        - feature_19
+        - feature_20
+        - feature_21
+        - feature_22
+        - feature_23
+        - feature_24
+        - feature_25
+        - feature_26
+        - feature_27
+        - feature_28
+        - feature_29
+        - feature_30
+        - feature_31
+        - feature_32
+        - feature_33
+        - feature_34
+        - feature_35
+        - feature_36
+        - feature_37
+        - feature_38
+        - feature_39
+        - feature_40
+        - feature_41
+        - feature_42
+        - feature_43
+        - feature_44
+        - feature_45
+        - feature_46
+        - feature_47
+        - feature_48
+        - feature_49
+        - feature_50
+        - feature_51
+        - feature_52
+        - feature_53
+        - feature_54
+        - feature_55
+        - feature_56
+        - feature_57
+        - feature_58
+        - feature_59
+        - feature_60
+        - feature_61
+        - feature_62
+        - feature_63
+        - feature_64
+        - feature_65
+        - feature_66
+        - feature_67
+        - feature_68
+        - feature_69
+        - feature_70
+        - feature_71
+        - feature_72
+        - feature_73
+        - feature_74
+        - feature_75
+        - feature_76
+        - feature_77
+        - feature_78
+        - feature_79
+        - feature_80
+        - feature_81
+        - feature_82
+        - feature_83
+        - feature_84
+        - feature_85
+        - feature_86
+        - feature_87
+        - feature_88
+        - feature_89
+        - feature_90
+        - feature_91
+        - feature_92
+        - feature_93
+        - feature_94
+        - feature_95
+        - feature_96
+        - feature_97
+        - feature_98
+        - feature_99
+      target: target
