@@ -108,6 +108,7 @@ entries:
   - d00346120737
   - d34b44341a11
   - d5a3423b914d
+  - d6d67f3dc8ad
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -223,3 +224,4 @@ aliases:
   - plot_nca_classification-xorq_knn_preds
   - plot_discretization_strategies-xorq_ds2_kmeans_transformed
   - plot_faces_decomposition-xorq_dict_learning_transformed
+  - plot_roc-xorq_class2_proba
