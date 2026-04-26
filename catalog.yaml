@@ -84,6 +84,7 @@ entries:
   - a6d901cbedce
   - a70a5134dd6b
   - a9b34d4509f0
+  - ac3ab5c7509b
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -173,3 +174,4 @@ aliases:
   - plot_stack_predictors-xorq_linear_ridge_preds
   - plot_compare_calibration-xorq_logistic_proba
   - plot_all_scaling-xorq_power_bc_transformed
+  - plot_discretization_strategies-xorq_ds1_uniform_transformed
