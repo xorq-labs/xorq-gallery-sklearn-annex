@@ -27,6 +27,7 @@ entries:
   - 30a956d680e7
   - 30e4c1759b69
   - 30f2e6facd4d
+  - 33f70597835b
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -59,3 +60,4 @@ aliases:
   - plot_quantile_regression-xorq_normal_q05_preds
   - plot_tomography_l1_reconstruction-xorq_ridge_preds
   - plot_kmeans_silhouette_analysis-xorq_k5_preds
+  - plot_nca_classification-xorq_nca_knn_preds

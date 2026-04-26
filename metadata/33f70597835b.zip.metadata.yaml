@@ -1,0 +1,390 @@
+md5sum: a9eedc10e0053651cf8303000a31e166
+backends:
+  - xorq_datafusion
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    y: int64
+    pred: int64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-25c784ff6ef280bbb8d6e5dbf3a9f7a7
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          _PREDICT_D214E4014A8B(_TRANSFORMED_ENCODED_24217ED725CB("t0"."x0", "t0"."x1")) AS "pred"
+        FROM "ibis_rbr-placeholder_i4tqaokxdvamxd" AS "t0"
+    - - ibis_rbr-placeholder_i4tqaokxdvamxd
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          _TRANSFORMED_4B458F68CD29("t0"."x0", "t0"."x1")['x0'] AS "x0",
+          _TRANSFORMED_4B458F68CD29("t0"."x0", "t0"."x1")['x1'] AS "x1"
+        FROM "ibis_pandas_memtable_45c79a9de4ce48fc67840fcf838730e6" AS "t0"
+    - - ibis_rbr-placeholder_pxofmbbrrzbk7p
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          _TRANSFORMED_4B458F68CD29("t0"."x0", "t0"."x1")['x0'] AS "x0",
+          _TRANSFORMED_4B458F68CD29("t0"."x0", "t0"."x1")['x1'] AS "x1"
+        FROM "ibis_pandas_memtable_f60cbba76d529416d1698ed59ae6c30f" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          y: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.neighbors._classification.KNeighborsClassifier'>), ('name', 'knn'), ('params_tuple', (('algorithm', 'auto'), ('leaf_size', 30), ('metric', 'minkowski'), ('metric_params', None), ('n_jobs', None), ('n_neighbors', 1), ('p', 2), ('weights', 'uniform'))), ('features', ('transformed',)), ('target', 'y')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.preprocessing._data.StandardScaler'>), ('name', 'scaler'), ('params_tuple', (('copy', True), ('with_mean', True), ('with_std', True))), ('features', ('x0', 'x1')), ('target', 'y')), (('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.neighbors._nca.NeighborhoodComponentsAnalysis'>), ('name', 'nca'), ('params_tuple', (('callback', None), ('init', 'auto'), ('max_iter', 50), ('n_components', None), ('random_state', 42), ('tol', 1e-05), ('verbose', 0), ('warm_start', False))), ('features', ('x0', 'x1')), ('target', 'y')), (('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.neighbors._classification.KNeighborsClassifier'>), ('name', 'knn'), ('params_tuple', (('algorithm', 'auto'), ('leaf_size', 30), ('metric', 'minkowski'), ('metric_params', None), ('n_jobs', None), ('n_neighbors', 1), ('p', 2), ('weights', 'uniform'))), ('features', ('transformed',)), ('target', 'y')))"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          y: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.neighbors._classification.KNeighborsClassifier'>"
+          name: knn
+          params_tuple: "(('algorithm', 'auto'), ('leaf_size', 30), ('metric', 'minkowski'), ('metric_params', None), ('n_jobs', None), ('n_neighbors', 1), ('p', 2), ('weights', 'uniform'))"
+          features: "('transformed',)"
+          target: y
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          y: int64
+          pred: int64
+      - id: "3"
+        type: Tag
+        label: Tag
+        schema:
+          y: int64
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.neighbors._nca.NeighborhoodComponentsAnalysis'>"
+          name: nca
+          params_tuple: "(('callback', None), ('init', 'auto'), ('max_iter', 50), ('n_components', None), ('random_state', 42), ('tol', 1e-05), ('verbose', 0), ('warm_start', False))"
+          features: "('x0', 'x1')"
+          target: y
+      - id: "4"
+        type: Field
+        label: "Field:y"
+      - id: "5"
+        type: _predict_d214e4014a8b
+        label: ExprScalarUDF
+        schema:
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "6"
+        type: Project
+        label: Project
+        schema:
+          y: int64
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "7"
+        type: dumps_of__inner_fit_6
+        label: dumps_of__inner_fit_6
+      - id: "8"
+        type: RemoteTable
+        label: "RemoteTable:ibis_rbr-placeholder_i4tqaokxdvamxd"
+        schema:
+          y: int64
+          x0: float64
+          x1: float64
+      - id: "9"
+        type: Field
+        label: "Field:y"
+      - id: "10"
+        type: _transformed_encoded_24217ed725cb
+        label: ExprScalarUDF
+        schema:
+          x0: float64
+          x1: float64
+      - id: "11"
+        type: Field
+        label: "Field:transformed"
+      - id: "12"
+        type: Field
+        label: "Field:y"
+      - id: "13"
+        type: Tag
+        label: Tag
+        schema:
+          y: int64
+          x0: float64
+          x1: float64
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._data.StandardScaler'>"
+          name: scaler
+          params_tuple: "(('copy', True), ('with_mean', True), ('with_std', True))"
+          features: "('x0', 'x1')"
+          target: y
+      - id: "14"
+        type: dumps_of__inner_fit_5
+        label: dumps_of__inner_fit_5
+      - id: "15"
+        type: Tag
+        label: Tag
+        schema:
+          y: int64
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.neighbors._nca.NeighborhoodComponentsAnalysis'>"
+          name: nca
+          params_tuple: "(('callback', None), ('init', 'auto'), ('max_iter', 50), ('n_components', None), ('random_state', 42), ('tol', 1e-05), ('verbose', 0), ('warm_start', False))"
+          features: "('x0', 'x1')"
+          target: y
+      - id: "16"
+        type: Project
+        label: Project
+        schema:
+          y: int64
+          x0: float64
+          x1: float64
+      - id: "17"
+        type: Field
+        label: "Field:x0"
+      - id: "18"
+        type: Field
+        label: "Field:x1"
+      - id: "19"
+        type: Field
+        label: "Field:y"
+      - id: "20"
+        type: Project
+        label: Project
+        schema:
+          y: int64
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "21"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          x0: float64
+          x1: float64
+          y: int64
+      - id: "22"
+        type: Field
+        label: "Field:y"
+      - id: "23"
+        type: StructField
+        label: StructField
+      - id: "24"
+        type: StructField
+        label: StructField
+      - id: "25"
+        type: RemoteTable
+        label: "RemoteTable:ibis_rbr-placeholder_pxofmbbrrzbk7p"
+        schema:
+          y: int64
+          x0: float64
+          x1: float64
+      - id: "26"
+        type: _transformed_encoded_24217ed725cb
+        label: ExprScalarUDF
+        schema:
+          x0: float64
+          x1: float64
+      - id: "27"
+        type: _transformed_4b458f68cd29
+        label: ExprScalarUDF
+        schema:
+          x0: float64
+          x1: float64
+      - id: "28"
+        type: Tag
+        label: Tag
+        schema:
+          y: int64
+          x0: float64
+          x1: float64
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._data.StandardScaler'>"
+          name: scaler
+          params_tuple: "(('copy', True), ('with_mean', True), ('with_std', True))"
+          features: "('x0', 'x1')"
+          target: y
+      - id: "29"
+        type: dumps_of__inner_fit_4
+        label: dumps_of__inner_fit_4
+      - id: "30"
+        type: Project
+        label: Project
+        schema:
+          y: int64
+          x0: float64
+          x1: float64
+      - id: "31"
+        type: Field
+        label: "Field:x0"
+      - id: "32"
+        type: Field
+        label: "Field:x1"
+      - id: "33"
+        type: Field
+        label: "Field:y"
+      - id: "34"
+        type: Tag
+        label: Tag
+        schema:
+          x0: float64
+          x1: float64
+          y: int64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: y
+          features: "('x0', 'x1')"
+      - id: "35"
+        type: StructField
+        label: StructField
+      - id: "36"
+        type: StructField
+        label: StructField
+      - id: "37"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          x0: float64
+          x1: float64
+          y: int64
+      - id: "38"
+        type: _transformed_4b458f68cd29
+        label: ExprScalarUDF
+        schema:
+          x0: float64
+          x1: float64
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "3"
+        - "6"
+      - - "4"
+        - "3"
+      - - "5"
+        - "7"
+      - - "6"
+        - "8"
+      - - "6"
+        - "9"
+      - - "6"
+        - "10"
+      - - "7"
+        - "11"
+      - - "7"
+        - "12"
+      - - "8"
+        - "13"
+      - - "9"
+        - "8"
+      - - "10"
+        - "14"
+      - - "11"
+        - "15"
+      - - "12"
+        - "15"
+      - - "13"
+        - "16"
+      - - "14"
+        - "17"
+      - - "14"
+        - "18"
+      - - "14"
+        - "19"
+      - - "15"
+        - "20"
+      - - "16"
+        - "21"
+      - - "16"
+        - "22"
+      - - "16"
+        - "23"
+      - - "16"
+        - "24"
+      - - "17"
+        - "25"
+      - - "18"
+        - "25"
+      - - "19"
+        - "25"
+      - - "20"
+        - "25"
+      - - "20"
+        - "19"
+      - - "20"
+        - "26"
+      - - "22"
+        - "21"
+      - - "23"
+        - "27"
+      - - "24"
+        - "27"
+      - - "25"
+        - "28"
+      - - "26"
+        - "14"
+      - - "27"
+        - "29"
+      - - "28"
+        - "30"
+      - - "29"
+        - "31"
+      - - "29"
+        - "32"
+      - - "29"
+        - "33"
+      - - "30"
+        - "34"
+      - - "30"
+        - "33"
+      - - "30"
+        - "35"
+      - - "30"
+        - "36"
+      - - "31"
+        - "34"
+      - - "32"
+        - "34"
+      - - "33"
+        - "34"
+      - - "34"
+        - "37"
+      - - "35"
+        - "38"
+      - - "36"
+        - "38"
+      - - "38"
+        - "29"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 3 steps
+      steps:
+        - scaler
+        - nca
+        - knn
+      features:
+        - transformed
+      target: y
