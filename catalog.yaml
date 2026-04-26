@@ -17,6 +17,7 @@ entries:
   - 224b49c44a74
   - 22a2b72e594b
   - 23c94e94b3cc
+  - 2436502fe387
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -39,3 +40,4 @@ aliases:
   - plot_cv_indices-xorq_shufflesplit_folds
   - plot_cv_indices-xorq_stratifiedkfold_folds
   - plot_cv_indices-xorq_stratifiedshufflesplit_folds
+  - plot_kmeans_silhouette_analysis-xorq_k4_preds
