@@ -1,0 +1,191 @@
+md5sum: 3c6d63d788368fcd5623f6317f3cbc4b
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    label: int64
+    transformed: "array<struct<key: string, value: float64>>"
+  root_tag: FittedPipeline-transform
+  cache_keys:
+    key: letsql_cache-snapshot-906681c6d659f1af47cb256c281a1fa4
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."label",
+          _TRANSFORMED_ENCODED_907833A7727D(_TRANSFORMED_ENCODED_2898CEEF6BE8("t0"."text")) AS "transformed"
+        FROM "ibis_pandas_memtable_00dfb8754ea3c165394fcd40aa756161" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          label: int64
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedPipeline-transform
+          FittedPipeline-transform: "((('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.feature_extraction.text.TfidfVectorizer'>), ('name', 'tfidf'), ('params_tuple', (('analyzer', 'word'), ('binary', False), ('decode_error', 'strict'), ('dtype', <class 'numpy.float64'>), ('encoding', 'utf-8'), ('input', 'content'), ('lowercase', True), ('max_df', 0.95), ('max_features', 1000), ('min_df', 2), ('ngram_range', (1, 1)), ('norm', 'l2'), ('preprocessor', None), ('smooth_idf', True), ('stop_words', 'english'), ('strip_accents', None), ('sublinear_tf', False), ('token_pattern', '(?u)\\\\b\\\\w\\\\w+\\\\b'), ('tokenizer', None), ('use_idf', True), ('vocabulary', None))), ('features', ('text',)), ('target', None)), (('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.decomposition._nmf.NMF'>), ('name', 'nmf'), ('params_tuple', (('alpha_H', 'same'), ('alpha_W', 0.0), ('beta_loss', 'frobenius'), ('init', None), ('l1_ratio', 0.0), ('max_iter', 300), ('n_components', 10), ('random_state', 42), ('shuffle', False), ('solver', 'cd'), ('tol', 0.0001), ('verbose', 0))), ('features', ('transformed',)), ('target', None)))"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.feature_extraction.text.TfidfVectorizer'>), ('name', 'tfidf'), ('params_tuple', (('analyzer', 'word'), ('binary', False), ('decode_error', 'strict'), ('dtype', <class 'numpy.float64'>), ('encoding', 'utf-8'), ('input', 'content'), ('lowercase', True), ('max_df', 0.95), ('max_features', 1000), ('min_df', 2), ('ngram_range', (1, 1)), ('norm', 'l2'), ('preprocessor', None), ('smooth_idf', True), ('stop_words', 'english'), ('strip_accents', None), ('sublinear_tf', False), ('token_pattern', '(?u)\\\\b\\\\w\\\\w+\\\\b'), ('tokenizer', None), ('use_idf', True), ('vocabulary', None))), ('features', ('text',)), ('target', None)), (('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.decomposition._nmf.NMF'>), ('name', 'nmf'), ('params_tuple', (('alpha_H', 'same'), ('alpha_W', 0.0), ('beta_loss', 'frobenius'), ('init', None), ('l1_ratio', 0.0), ('max_iter', 300), ('n_components', 10), ('random_state', 42), ('shuffle', False), ('solver', 'cd'), ('tol', 0.0001), ('verbose', 0))), ('features', ('transformed',)), ('target', None)))"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          label: int64
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.decomposition._nmf.NMF'>"
+          name: nmf
+          params_tuple: "(('alpha_H', 'same'), ('alpha_W', 0.0), ('beta_loss', 'frobenius'), ('init', None), ('l1_ratio', 0.0), ('max_iter', 300), ('n_components', 10), ('random_state', 42), ('shuffle', False), ('solver', 'cd'), ('tol', 0.0001), ('verbose', 0))"
+          features: "('transformed',)"
+          target: None
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          label: int64
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "3"
+        type: Tag
+        label: Tag
+        schema:
+          label: int64
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.feature_extraction.text.TfidfVectorizer'>"
+          name: tfidf
+          params_tuple: "(('analyzer', 'word'), ('binary', False), ('decode_error', 'strict'), ('dtype', <class 'numpy.float64'>), ('encoding', 'utf-8'), ('input', 'content'), ('lowercase', True), ('max_df', 0.95), ('max_features', 1000), ('min_df', 2), ('ngram_range', (1, 1)), ('norm', 'l2'), ('preprocessor', None), ('smooth_idf', True), ('stop_words', 'english'), ('strip_accents', None), ('sublinear_tf', False), ('token_pattern', '(?u)\\\\b\\\\w\\\\w+\\\\b'), ('tokenizer', None), ('use_idf', True), ('vocabulary', None))"
+          features: "('text',)"
+          target: None
+      - id: "4"
+        type: Field
+        label: "Field:label"
+      - id: "5"
+        type: _transformed_encoded_907833a7727d
+        label: ExprScalarUDF
+        schema:
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "6"
+        type: Project
+        label: Project
+        schema:
+          label: int64
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "7"
+        type: dumps_of__inner_fit_1
+        label: dumps_of__inner_fit_1
+      - id: "8"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          text: string
+          label: int64
+      - id: "9"
+        type: Field
+        label: "Field:label"
+      - id: "10"
+        type: _transformed_encoded_2898ceef6be8
+        label: ExprScalarUDF
+        schema:
+          text: string
+      - id: "11"
+        type: Field
+        label: "Field:transformed"
+      - id: "12"
+        type: dumps_of__inner_fit_0
+        label: dumps_of__inner_fit_0
+      - id: "13"
+        type: Tag
+        label: Tag
+        schema:
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.feature_extraction.text.TfidfVectorizer'>"
+          name: tfidf
+          params_tuple: "(('analyzer', 'word'), ('binary', False), ('decode_error', 'strict'), ('dtype', <class 'numpy.float64'>), ('encoding', 'utf-8'), ('input', 'content'), ('lowercase', True), ('max_df', 0.95), ('max_features', 1000), ('min_df', 2), ('ngram_range', (1, 1)), ('norm', 'l2'), ('preprocessor', None), ('smooth_idf', True), ('stop_words', 'english'), ('strip_accents', None), ('sublinear_tf', False), ('token_pattern', '(?u)\\\\b\\\\w\\\\w+\\\\b'), ('tokenizer', None), ('use_idf', True), ('vocabulary', None))"
+          features: "('text',)"
+          target: None
+      - id: "14"
+        type: Field
+        label: "Field:text"
+      - id: "15"
+        type: Project
+        label: Project
+        schema:
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "16"
+        type: Tag
+        label: Tag
+        schema:
+          text: string
+          label: int64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: None
+          features: "('text',)"
+      - id: "17"
+        type: _transformed_encoded_2898ceef6be8
+        label: ExprScalarUDF
+        schema:
+          text: string
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "3"
+        - "6"
+      - - "4"
+        - "3"
+      - - "5"
+        - "7"
+      - - "6"
+        - "8"
+      - - "6"
+        - "9"
+      - - "6"
+        - "10"
+      - - "7"
+        - "11"
+      - - "9"
+        - "8"
+      - - "10"
+        - "12"
+      - - "11"
+        - "13"
+      - - "12"
+        - "14"
+      - - "13"
+        - "15"
+      - - "14"
+        - "16"
+      - - "15"
+        - "16"
+      - - "15"
+        - "17"
+      - - "16"
+        - "8"
+      - - "17"
+        - "12"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 2 steps
+      steps:
+        - tfidf
+        - nmf
+      features:
+        - transformed
+      target: ~
