@@ -1,0 +1,299 @@
+md5sum: e8b68e03882354042a8fcafe7664f717
+backends:
+  - xorq_datafusion
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    y: int64
+    pred: int64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-fdaa5d6a70954a79e9e5003dc991bf95
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          _PREDICT_2E1A414BA41B("t0"."x0", "t0"."x1") AS "pred"
+        FROM "ibis_rbr-placeholder_kardepua7rg6vc" AS "t0"
+    - - ibis_rbr-placeholder_kardepua7rg6vc
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          _TRANSFORMED_4B458F68CD29("t0"."x0", "t0"."x1")['x0'] AS "x0",
+          _TRANSFORMED_4B458F68CD29("t0"."x0", "t0"."x1")['x1'] AS "x1"
+        FROM "ibis_pandas_memtable_c3dad1c67b8e4dde2ea902469b082641" AS "t0"
+    - - ibis_rbr-placeholder_qutqe7jq2na3db
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          _TRANSFORMED_4B458F68CD29("t0"."x0", "t0"."x1")['x0'] AS "x0",
+          _TRANSFORMED_4B458F68CD29("t0"."x0", "t0"."x1")['x1'] AS "x1"
+        FROM "ibis_pandas_memtable_da84c2ec82539baa558900a18ec3e8d6" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          y: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.svm._classes.SVC'>), ('name', 'clf'), ('params_tuple', (('C', 0.025), ('break_ties', False), ('cache_size', 200), ('class_weight', None), ('coef0', 0.0), ('decision_function_shape', 'ovr'), ('degree', 3), ('gamma', 'scale'), ('kernel', 'linear'), ('max_iter', -1), ('probability', False), ('random_state', None), ('shrinking', True), ('tol', 0.001), ('verbose', False))), ('features', ('x0', 'x1')), ('target', 'y')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.preprocessing._data.StandardScaler'>), ('name', 'scaler'), ('params_tuple', (('copy', True), ('with_mean', True), ('with_std', True))), ('features', ('x0', 'x1')), ('target', 'y')), (('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.svm._classes.SVC'>), ('name', 'clf'), ('params_tuple', (('C', 0.025), ('break_ties', False), ('cache_size', 200), ('class_weight', None), ('coef0', 0.0), ('decision_function_shape', 'ovr'), ('degree', 3), ('gamma', 'scale'), ('kernel', 'linear'), ('max_iter', -1), ('probability', False), ('random_state', None), ('shrinking', True), ('tol', 0.001), ('verbose', False))), ('features', ('x0', 'x1')), ('target', 'y')))"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          y: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.svm._classes.SVC'>"
+          name: clf
+          params_tuple: "(('C', 0.025), ('break_ties', False), ('cache_size', 200), ('class_weight', None), ('coef0', 0.0), ('decision_function_shape', 'ovr'), ('degree', 3), ('gamma', 'scale'), ('kernel', 'linear'), ('max_iter', -1), ('probability', False), ('random_state', None), ('shrinking', True), ('tol', 0.001), ('verbose', False))"
+          features: "('x0', 'x1')"
+          target: y
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          y: int64
+          pred: int64
+      - id: "3"
+        type: RemoteTable
+        label: "RemoteTable:ibis_rbr-placeholder_kardepua7rg6vc"
+        schema:
+          y: int64
+          x0: float64
+          x1: float64
+      - id: "4"
+        type: Field
+        label: "Field:y"
+      - id: "5"
+        type: _predict_2e1a414ba41b
+        label: ExprScalarUDF
+        schema:
+          x0: float64
+          x1: float64
+      - id: "6"
+        type: Tag
+        label: Tag
+        schema:
+          y: int64
+          x0: float64
+          x1: float64
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._data.StandardScaler'>"
+          name: scaler
+          params_tuple: "(('copy', True), ('with_mean', True), ('with_std', True))"
+          features: "('x0', 'x1')"
+          target: y
+      - id: "7"
+        type: dumps_of__inner_fit_69
+        label: dumps_of__inner_fit_69
+      - id: "8"
+        type: Project
+        label: Project
+        schema:
+          y: int64
+          x0: float64
+          x1: float64
+      - id: "9"
+        type: Field
+        label: "Field:x0"
+      - id: "10"
+        type: Field
+        label: "Field:x1"
+      - id: "11"
+        type: Field
+        label: "Field:y"
+      - id: "12"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          x0: float64
+          x1: float64
+          y: int64
+      - id: "13"
+        type: Field
+        label: "Field:y"
+      - id: "14"
+        type: StructField
+        label: StructField
+      - id: "15"
+        type: StructField
+        label: StructField
+      - id: "16"
+        type: RemoteTable
+        label: "RemoteTable:ibis_rbr-placeholder_qutqe7jq2na3db"
+        schema:
+          y: int64
+          x0: float64
+          x1: float64
+      - id: "17"
+        type: _transformed_4b458f68cd29
+        label: ExprScalarUDF
+        schema:
+          x0: float64
+          x1: float64
+      - id: "18"
+        type: Tag
+        label: Tag
+        schema:
+          y: int64
+          x0: float64
+          x1: float64
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._data.StandardScaler'>"
+          name: scaler
+          params_tuple: "(('copy', True), ('with_mean', True), ('with_std', True))"
+          features: "('x0', 'x1')"
+          target: y
+      - id: "19"
+        type: dumps_of__inner_fit_68
+        label: dumps_of__inner_fit_68
+      - id: "20"
+        type: Project
+        label: Project
+        schema:
+          y: int64
+          x0: float64
+          x1: float64
+      - id: "21"
+        type: Field
+        label: "Field:x0"
+      - id: "22"
+        type: Field
+        label: "Field:x1"
+      - id: "23"
+        type: Field
+        label: "Field:y"
+      - id: "24"
+        type: Tag
+        label: Tag
+        schema:
+          x0: float64
+          x1: float64
+          y: int64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: y
+          features: "('x0', 'x1')"
+      - id: "25"
+        type: StructField
+        label: StructField
+      - id: "26"
+        type: StructField
+        label: StructField
+      - id: "27"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          x0: float64
+          x1: float64
+          y: int64
+      - id: "28"
+        type: _transformed_4b458f68cd29
+        label: ExprScalarUDF
+        schema:
+          x0: float64
+          x1: float64
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "3"
+        - "6"
+      - - "4"
+        - "3"
+      - - "5"
+        - "7"
+      - - "6"
+        - "8"
+      - - "7"
+        - "9"
+      - - "7"
+        - "10"
+      - - "7"
+        - "11"
+      - - "8"
+        - "12"
+      - - "8"
+        - "13"
+      - - "8"
+        - "14"
+      - - "8"
+        - "15"
+      - - "9"
+        - "16"
+      - - "10"
+        - "16"
+      - - "11"
+        - "16"
+      - - "13"
+        - "12"
+      - - "14"
+        - "17"
+      - - "15"
+        - "17"
+      - - "16"
+        - "18"
+      - - "17"
+        - "19"
+      - - "18"
+        - "20"
+      - - "19"
+        - "21"
+      - - "19"
+        - "22"
+      - - "19"
+        - "23"
+      - - "20"
+        - "24"
+      - - "20"
+        - "23"
+      - - "20"
+        - "25"
+      - - "20"
+        - "26"
+      - - "21"
+        - "24"
+      - - "22"
+        - "24"
+      - - "23"
+        - "24"
+      - - "24"
+        - "27"
+      - - "25"
+        - "28"
+      - - "26"
+        - "28"
+      - - "28"
+        - "19"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 2 steps
+      steps:
+        - scaler
+        - clf
+      features:
+        - x0
+        - x1
+      target: y
