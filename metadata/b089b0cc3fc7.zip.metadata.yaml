@@ -1,0 +1,372 @@
+md5sum: 25dee98225daba0bf9fe1e6d6b2aae13
+backends:
+  - xorq_datafusion
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    survived: int64
+    pred: int64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-7cdf88d34e4567637ead5404f5c31f6c
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."survived",
+          _PREDICT_6854828A9FE1("t0"."num__age", "t0"."num__fare", "t0"."cat") AS "pred"
+        FROM "ibis_rbr-placeholder_6v7xb2tmovhqnh" AS "t0"
+    - - ibis_rbr-placeholder_6v7xb2tmovhqnh
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."survived",
+          _TRANSFORMED_STRUCT_KV_E1FD79F8B16F("t0"."age", "t0"."fare", "t0"."embarked", "t0"."sex", "t0"."pclass")['num__age'] AS "num__age",
+          _TRANSFORMED_STRUCT_KV_E1FD79F8B16F("t0"."age", "t0"."fare", "t0"."embarked", "t0"."sex", "t0"."pclass")['num__fare'] AS "num__fare",
+          _TRANSFORMED_STRUCT_KV_E1FD79F8B16F("t0"."age", "t0"."fare", "t0"."embarked", "t0"."sex", "t0"."pclass")['cat'] AS "cat"
+        FROM "ibis_pandas_memtable_f5b3aa1010c7ad2c5b688448174b815a" AS "t0"
+    - - ibis_rbr-placeholder_g723ccjcybbbhp
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."survived",
+          _TRANSFORMED_STRUCT_KV_E1FD79F8B16F("t0"."age", "t0"."fare", "t0"."embarked", "t0"."sex", "t0"."pclass")['num__age'] AS "num__age",
+          _TRANSFORMED_STRUCT_KV_E1FD79F8B16F("t0"."age", "t0"."fare", "t0"."embarked", "t0"."sex", "t0"."pclass")['num__fare'] AS "num__fare",
+          _TRANSFORMED_STRUCT_KV_E1FD79F8B16F("t0"."age", "t0"."fare", "t0"."embarked", "t0"."sex", "t0"."pclass")['cat'] AS "cat"
+        FROM "ibis_pandas_memtable_abdccd0b9061c6fd268c270552952503" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          survived: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.linear_model._logistic.LogisticRegression'>), ('name', 'classifier'), ('params_tuple', (('C', 1.0), ('class_weight', None), ('dual', False), ('fit_intercept', True), ('intercept_scaling', 1), ('l1_ratio', 0.0), ('max_iter', 1000), ('n_jobs', None), ('penalty', 'deprecated'), ('random_state', 0), ('solver', 'lbfgs'), ('tol', 0.0001), ('verbose', 0), ('warm_start', False))), ('features', ('num__age', 'num__fare', 'cat')), ('target', 'survived')),)"
+          FittedPipeline-all_steps: |-
+            ((('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.compose._column_transformer.ColumnTransformer'>), ('name', 'preprocessor'), ('params_tuple', (('force_int_remainder_cols', 'deprecated'), ('n_jobs', None), ('remainder', 'drop'), ('sparse_threshold', 0.3), ('transformer_weights', None), ('transformers', (('num', Pipeline(steps=[('imputer', SimpleImputer(strategy='median')),
+                            ('scaler', StandardScaler())]), ('age', 'fare')), ('cat', OneHotEncoder(handle_unknown='ignore', sparse_output=False), ('embarked', 'sex', 'pclass')))), ('verbose', False), ('verbose_feature_names_out', True))), ('features', ('age', 'fare', 'embarked', 'sex', 'pclass')), ('target', 'survived')), (('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.linear_model._logistic.LogisticRegression'>), ('name', 'classifier'), ('params_tuple', (('C', 1.0), ('class_weight', None), ('dual', False), ('fit_intercept', True), ('intercept_scaling', 1), ('l1_ratio', 0.0), ('max_iter', 1000), ('n_jobs', None), ('penalty', 'deprecated'), ('random_state', 0), ('solver', 'lbfgs'), ('tol', 0.0001), ('verbose', 0), ('warm_start', False))), ('features', ('num__age', 'num__fare', 'cat')), ('target', 'survived')))
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          survived: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.linear_model._logistic.LogisticRegression'>"
+          name: classifier
+          params_tuple: "(('C', 1.0), ('class_weight', None), ('dual', False), ('fit_intercept', True), ('intercept_scaling', 1), ('l1_ratio', 0.0), ('max_iter', 1000), ('n_jobs', None), ('penalty', 'deprecated'), ('random_state', 0), ('solver', 'lbfgs'), ('tol', 0.0001), ('verbose', 0), ('warm_start', False))"
+          features: "('num__age', 'num__fare', 'cat')"
+          target: survived
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          survived: int64
+          pred: int64
+      - id: "3"
+        type: RemoteTable
+        label: "RemoteTable:ibis_rbr-placeholder_6v7xb2tmovhqnh"
+        schema:
+          survived: int64
+          num__age: float64
+          num__fare: float64
+          cat: "array<struct<key: string, value: float64>>"
+      - id: "4"
+        type: Field
+        label: "Field:survived"
+      - id: "5"
+        type: _predict_6854828a9fe1
+        label: ExprScalarUDF
+        schema:
+          num__age: float64
+          num__fare: float64
+          cat: "array<struct<key: string, value: float64>>"
+      - id: "6"
+        type: Tag
+        label: Tag
+        schema:
+          survived: int64
+          num__age: float64
+          num__fare: float64
+          cat: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.compose._column_transformer.ColumnTransformer'>"
+          name: preprocessor
+          params_tuple: |-
+            (('force_int_remainder_cols', 'deprecated'), ('n_jobs', None), ('remainder', 'drop'), ('sparse_threshold', 0.3), ('transformer_weights', None), ('transformers', (('num', Pipeline(steps=[('imputer', SimpleImputer(strategy='median')),
+                            ('scaler', StandardScaler())]), ('age', 'fare')), ('cat', OneHotEncoder(handle_unknown='ignore', sparse_output=False), ('embarked', 'sex', 'pclass')))), ('verbose', False), ('verbose_feature_names_out', True))
+          features: "('age', 'fare', 'embarked', 'sex', 'pclass')"
+          target: survived
+      - id: "7"
+        type: dumps_of__inner_fit_1
+        label: dumps_of__inner_fit_1
+      - id: "8"
+        type: Project
+        label: Project
+        schema:
+          survived: int64
+          num__age: float64
+          num__fare: float64
+          cat: "array<struct<key: string, value: float64>>"
+      - id: "9"
+        type: Field
+        label: "Field:num__age"
+      - id: "10"
+        type: Field
+        label: "Field:num__fare"
+      - id: "11"
+        type: Field
+        label: "Field:cat"
+      - id: "12"
+        type: Field
+        label: "Field:survived"
+      - id: "13"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          age: float64
+          fare: float64
+          embarked: string
+          sex: string
+          pclass: string
+          survived: int64
+      - id: "14"
+        type: Field
+        label: "Field:survived"
+      - id: "15"
+        type: StructField
+        label: StructField
+      - id: "16"
+        type: StructField
+        label: StructField
+      - id: "17"
+        type: StructField
+        label: StructField
+      - id: "18"
+        type: RemoteTable
+        label: "RemoteTable:ibis_rbr-placeholder_g723ccjcybbbhp"
+        schema:
+          survived: int64
+          num__age: float64
+          num__fare: float64
+          cat: "array<struct<key: string, value: float64>>"
+      - id: "19"
+        type: _transformed_struct_kv_e1fd79f8b16f
+        label: ExprScalarUDF
+        schema:
+          age: float64
+          fare: float64
+          embarked: string
+          sex: string
+          pclass: string
+      - id: "20"
+        type: Tag
+        label: Tag
+        schema:
+          survived: int64
+          num__age: float64
+          num__fare: float64
+          cat: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.compose._column_transformer.ColumnTransformer'>"
+          name: preprocessor
+          params_tuple: |-
+            (('force_int_remainder_cols', 'deprecated'), ('n_jobs', None), ('remainder', 'drop'), ('sparse_threshold', 0.3), ('transformer_weights', None), ('transformers', (('num', Pipeline(steps=[('imputer', SimpleImputer(strategy='median')),
+                            ('scaler', StandardScaler())]), ('age', 'fare')), ('cat', OneHotEncoder(handle_unknown='ignore', sparse_output=False), ('embarked', 'sex', 'pclass')))), ('verbose', False), ('verbose_feature_names_out', True))
+          features: "('age', 'fare', 'embarked', 'sex', 'pclass')"
+          target: survived
+      - id: "21"
+        type: dumps_of__inner_fit_0
+        label: dumps_of__inner_fit_0
+      - id: "22"
+        type: Project
+        label: Project
+        schema:
+          survived: int64
+          num__age: float64
+          num__fare: float64
+          cat: "array<struct<key: string, value: float64>>"
+      - id: "23"
+        type: Field
+        label: "Field:age"
+      - id: "24"
+        type: Field
+        label: "Field:fare"
+      - id: "25"
+        type: Field
+        label: "Field:embarked"
+      - id: "26"
+        type: Field
+        label: "Field:sex"
+      - id: "27"
+        type: Field
+        label: "Field:pclass"
+      - id: "28"
+        type: Field
+        label: "Field:survived"
+      - id: "29"
+        type: Tag
+        label: Tag
+        schema:
+          age: float64
+          fare: float64
+          embarked: string
+          sex: string
+          pclass: string
+          survived: int64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: survived
+          features: "('age', 'fare', 'embarked', 'sex', 'pclass')"
+      - id: "30"
+        type: StructField
+        label: StructField
+      - id: "31"
+        type: StructField
+        label: StructField
+      - id: "32"
+        type: StructField
+        label: StructField
+      - id: "33"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          age: float64
+          fare: float64
+          embarked: string
+          sex: string
+          pclass: string
+          survived: int64
+      - id: "34"
+        type: _transformed_struct_kv_e1fd79f8b16f
+        label: ExprScalarUDF
+        schema:
+          age: float64
+          fare: float64
+          embarked: string
+          sex: string
+          pclass: string
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "3"
+        - "6"
+      - - "4"
+        - "3"
+      - - "5"
+        - "7"
+      - - "6"
+        - "8"
+      - - "7"
+        - "9"
+      - - "7"
+        - "10"
+      - - "7"
+        - "11"
+      - - "7"
+        - "12"
+      - - "8"
+        - "13"
+      - - "8"
+        - "14"
+      - - "8"
+        - "15"
+      - - "8"
+        - "16"
+      - - "8"
+        - "17"
+      - - "9"
+        - "18"
+      - - "10"
+        - "18"
+      - - "11"
+        - "18"
+      - - "12"
+        - "18"
+      - - "14"
+        - "13"
+      - - "15"
+        - "19"
+      - - "16"
+        - "19"
+      - - "17"
+        - "19"
+      - - "18"
+        - "20"
+      - - "19"
+        - "21"
+      - - "20"
+        - "22"
+      - - "21"
+        - "23"
+      - - "21"
+        - "24"
+      - - "21"
+        - "25"
+      - - "21"
+        - "26"
+      - - "21"
+        - "27"
+      - - "21"
+        - "28"
+      - - "22"
+        - "29"
+      - - "22"
+        - "28"
+      - - "22"
+        - "30"
+      - - "22"
+        - "31"
+      - - "22"
+        - "32"
+      - - "23"
+        - "29"
+      - - "24"
+        - "29"
+      - - "25"
+        - "29"
+      - - "26"
+        - "29"
+      - - "27"
+        - "29"
+      - - "28"
+        - "29"
+      - - "29"
+        - "33"
+      - - "30"
+        - "34"
+      - - "31"
+        - "34"
+      - - "32"
+        - "34"
+      - - "34"
+        - "21"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 2 steps
+      steps:
+        - preprocessor
+        - classifier
+      features:
+        - num__age
+        - num__fare
+        - cat
+      target: survived
