@@ -1,4 +1,6 @@
 entries:
   - 018d8462121d
+  - 031a27d8db85
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
+  - plot_lda_qda-xorq_qda_shared_preds
