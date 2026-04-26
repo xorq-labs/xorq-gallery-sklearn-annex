@@ -89,6 +89,7 @@ entries:
   - b2537a751f9b
   - b4a2662d93bf
   - ba3aafd0f84a
+  - bac68592c798
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -183,3 +184,4 @@ aliases:
   - plot_tree_regression-xorq_depth2_preds
   - plot_voting_regressor-xorq_rf_preds
   - plot_discretization_strategies-xorq_ds0_uniform_transformed
+  - plot_classification_probability-xorq_lr_c100_preds
