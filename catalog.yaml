@@ -114,6 +114,7 @@ entries:
   - da5d81960a3d
   - db7fbf03e1a6
   - dbae4cc953ca
+  - dc887d4c50ff
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -235,3 +236,4 @@ aliases:
   - plot_tree_regression-xorq_depth5_preds
   - plot_faces_decomposition-xorq_pca_transformed
   - plot_stack_predictors-xorq_spline_ridge_preds
+  - plot_faces_decomposition-xorq_sparse_pca_transformed
