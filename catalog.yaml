@@ -62,6 +62,7 @@ entries:
   - 6d09fe7002cd
   - 6dc111bcc0b3
   - 776c4475b316
+  - 77e116009dda
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -129,3 +130,4 @@ aliases:
   - plot_faces_decomposition-xorq_ica_transformed
   - plot_document_classification_20newsgroups-xorq_ridge_preds
   - plot_roc-xorq_class0_proba
+  - plot_svm_kernels-xorq_linear_preds
