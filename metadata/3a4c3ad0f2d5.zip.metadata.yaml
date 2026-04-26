@@ -1,0 +1,129 @@
+md5sum: 4d5b2a092d905610e8e6d402b10748f4
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    true_label: int64
+    pred: int64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-3a4c3ad0f2d5888de89d7caee6b76ab0
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."true_label",
+          _PREDICT_E23B98184505("t0"."f0", "t0"."f1") AS "pred"
+        FROM "ibis_pandas_memtable_dc97610d140e007d58c2866c01078f88" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          true_label: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.cluster._affinity_propagation.AffinityPropagation'>), ('name', 'af'), ('params_tuple', (('affinity', 'euclidean'), ('convergence_iter', 15), ('copy', True), ('damping', 0.5), ('max_iter', 200), ('preference', -50), ('random_state', 0), ('verbose', False))), ('features', ('f0', 'f1')), ('target', 'true_label')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.cluster._affinity_propagation.AffinityPropagation'>), ('name', 'af'), ('params_tuple', (('affinity', 'euclidean'), ('convergence_iter', 15), ('copy', True), ('damping', 0.5), ('max_iter', 200), ('preference', -50), ('random_state', 0), ('verbose', False))), ('features', ('f0', 'f1')), ('target', 'true_label')),)"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          true_label: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.cluster._affinity_propagation.AffinityPropagation'>"
+          name: af
+          params_tuple: "(('affinity', 'euclidean'), ('convergence_iter', 15), ('copy', True), ('damping', 0.5), ('max_iter', 200), ('preference', -50), ('random_state', 0), ('verbose', False))"
+          features: "('f0', 'f1')"
+          target: true_label
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          true_label: int64
+          pred: int64
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          f0: float64
+          f1: float64
+          true_label: int64
+      - id: "4"
+        type: Field
+        label: "Field:true_label"
+      - id: "5"
+        type: _predict_e23b98184505
+        label: ExprScalarUDF
+        schema:
+          f0: float64
+          f1: float64
+      - id: "6"
+        type: dumps_of__inner_fit_0
+        label: dumps_of__inner_fit_0
+      - id: "7"
+        type: Field
+        label: "Field:f0"
+      - id: "8"
+        type: Field
+        label: "Field:f1"
+      - id: "9"
+        type: Field
+        label: "Field:true_label"
+      - id: "10"
+        type: Tag
+        label: Tag
+        schema:
+          f0: float64
+          f1: float64
+          true_label: int64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: true_label
+          features: "('f0', 'f1')"
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "4"
+        - "3"
+      - - "5"
+        - "6"
+      - - "6"
+        - "7"
+      - - "6"
+        - "8"
+      - - "6"
+        - "9"
+      - - "7"
+        - "10"
+      - - "8"
+        - "10"
+      - - "9"
+        - "10"
+      - - "10"
+        - "3"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - af
+      features:
+        - f0
+        - f1
+      target: true_label

@@ -31,6 +31,7 @@ entries:
   - 3402d9d2c8b3
   - 35efbaa97d33
   - 38f57f34d8b7
+  - 3a4c3ad0f2d5
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -67,3 +68,4 @@ aliases:
   - plot_voting_regressor-xorq_vr_preds
   - plot_voting_regressor-xorq_lr_preds
   - plot_classifier_comparison-xorq_linearly_separable_linear_svm_preds
+  - plot_affinity_propagation-xorq_ap_preds
