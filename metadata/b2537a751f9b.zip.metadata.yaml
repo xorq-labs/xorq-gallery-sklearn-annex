@@ -1,0 +1,118 @@
+md5sum: 095b032af918c3bc5855deaf821578ca
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    y: float64
+    pred: float64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-b2537a751f9b3219761b5279a3990c24
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          _PREDICT_A4B224A12C9A("t0"."x") AS "pred"
+        FROM "ibis_pandas_memtable_c3695d18a5d0dad930b5583e04c651dc" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.tree._classes.DecisionTreeRegressor'>), ('name', 'tree'), ('params_tuple', (('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 2), ('max_features', None), ('max_leaf_nodes', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('min_weight_fraction_leaf', 0.0), ('monotonic_cst', None), ('random_state', 42), ('splitter', 'best'))), ('features', ('x',)), ('target', 'y')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.tree._classes.DecisionTreeRegressor'>), ('name', 'tree'), ('params_tuple', (('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 2), ('max_features', None), ('max_leaf_nodes', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('min_weight_fraction_leaf', 0.0), ('monotonic_cst', None), ('random_state', 42), ('splitter', 'best'))), ('features', ('x',)), ('target', 'y')),)"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.tree._classes.DecisionTreeRegressor'>"
+          name: tree
+          params_tuple: "(('ccp_alpha', 0.0), ('criterion', 'squared_error'), ('max_depth', 2), ('max_features', None), ('max_leaf_nodes', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('min_weight_fraction_leaf', 0.0), ('monotonic_cst', None), ('random_state', 42), ('splitter', 'best'))"
+          features: "('x',)"
+          target: y
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          y: float64
+          pred: float64
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          x: float64
+          y: float64
+      - id: "4"
+        type: Field
+        label: "Field:y"
+      - id: "5"
+        type: _predict_a4b224a12c9a
+        label: ExprScalarUDF
+        schema:
+          x: float64
+      - id: "6"
+        type: dumps_of__inner_fit_0
+        label: dumps_of__inner_fit_0
+      - id: "7"
+        type: Field
+        label: "Field:x"
+      - id: "8"
+        type: Field
+        label: "Field:y"
+      - id: "9"
+        type: Tag
+        label: Tag
+        schema:
+          x: float64
+          y: float64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: y
+          features: "('x',)"
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "4"
+        - "3"
+      - - "5"
+        - "6"
+      - - "6"
+        - "7"
+      - - "6"
+        - "8"
+      - - "7"
+        - "9"
+      - - "8"
+        - "9"
+      - - "9"
+        - "3"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - tree
+      features:
+        - x
+      target: y
