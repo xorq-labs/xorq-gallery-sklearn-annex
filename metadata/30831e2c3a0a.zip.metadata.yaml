@@ -1,0 +1,129 @@
+md5sum: 9b4648a61c48e1be7778ad742776e5b7
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    y: float64
+    pred: float64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-30831e2c3a0a10d61083fc8416ae1186
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          _PREDICT_BBFD38EA0416("t0"."x0", "t0"."x1") AS "pred"
+        FROM "ibis_pandas_memtable_c2f639799d47694d2973a0917f9cad9d" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis'>), ('name', 'qda'), ('params_tuple', (('covariance_estimator', None), ('priors', None), ('reg_param', 0.0), ('shrinkage', None), ('solver', 'svd'), ('store_covariance', True), ('tol', 0.0001))), ('features', ('x0', 'x1')), ('target', 'y')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis'>), ('name', 'qda'), ('params_tuple', (('covariance_estimator', None), ('priors', None), ('reg_param', 0.0), ('shrinkage', None), ('solver', 'svd'), ('store_covariance', True), ('tol', 0.0001))), ('features', ('x0', 'x1')), ('target', 'y')),)"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.discriminant_analysis.QuadraticDiscriminantAnalysis'>"
+          name: qda
+          params_tuple: "(('covariance_estimator', None), ('priors', None), ('reg_param', 0.0), ('shrinkage', None), ('solver', 'svd'), ('store_covariance', True), ('tol', 0.0001))"
+          features: "('x0', 'x1')"
+          target: y
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          y: float64
+          pred: float64
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          x0: float64
+          x1: float64
+          y: float64
+      - id: "4"
+        type: Field
+        label: "Field:y"
+      - id: "5"
+        type: _predict_bbfd38ea0416
+        label: ExprScalarUDF
+        schema:
+          x0: float64
+          x1: float64
+      - id: "6"
+        type: dumps_of__inner_fit_1
+        label: dumps_of__inner_fit_1
+      - id: "7"
+        type: Field
+        label: "Field:x0"
+      - id: "8"
+        type: Field
+        label: "Field:x1"
+      - id: "9"
+        type: Field
+        label: "Field:y"
+      - id: "10"
+        type: Tag
+        label: Tag
+        schema:
+          x0: float64
+          x1: float64
+          y: float64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: y
+          features: "('x0', 'x1')"
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "4"
+        - "3"
+      - - "5"
+        - "6"
+      - - "6"
+        - "7"
+      - - "6"
+        - "8"
+      - - "6"
+        - "9"
+      - - "7"
+        - "10"
+      - - "8"
+        - "10"
+      - - "9"
+        - "10"
+      - - "10"
+        - "3"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - qda
+      features:
+        - x0
+        - x1
+      target: y
