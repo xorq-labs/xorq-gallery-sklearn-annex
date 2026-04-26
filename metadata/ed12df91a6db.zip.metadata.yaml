@@ -1,0 +1,118 @@
+md5sum: 753030e3d3f9faf40d3612a16529df0f
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    y: float64
+    pred: float64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-ed12df91a6db9f0dee327d7c1d309a32
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          _PREDICT_358FF79EB742("t0"."X") AS "pred"
+        FROM "ibis_pandas_memtable_2dddd3b45b17795ff91d41b15dca4f81" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingRegressor'>), ('name', 'histgradientboostingregressor'), ('params_tuple', (('categorical_features', 'from_dtype'), ('early_stopping', 'auto'), ('interaction_cst', None), ('l2_regularization', 0.0), ('learning_rate', 0.1), ('loss', 'squared_error'), ('max_bins', 255), ('max_depth', None), ('max_features', 1.0), ('max_iter', 100), ('max_leaf_nodes', 31), ('min_samples_leaf', 20), ('monotonic_cst', None), ('n_iter_no_change', 10), ('quantile', None), ('random_state', 0), ('scoring', 'loss'), ('tol', 1e-07), ('validation_fraction', 0.1), ('verbose', 0), ('warm_start', False))), ('features', ('X',)), ('target', 'y')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingRegressor'>), ('name', 'histgradientboostingregressor'), ('params_tuple', (('categorical_features', 'from_dtype'), ('early_stopping', 'auto'), ('interaction_cst', None), ('l2_regularization', 0.0), ('learning_rate', 0.1), ('loss', 'squared_error'), ('max_bins', 255), ('max_depth', None), ('max_features', 1.0), ('max_iter', 100), ('max_leaf_nodes', 31), ('min_samples_leaf', 20), ('monotonic_cst', None), ('n_iter_no_change', 10), ('quantile', None), ('random_state', 0), ('scoring', 'loss'), ('tol', 1e-07), ('validation_fraction', 0.1), ('verbose', 0), ('warm_start', False))), ('features', ('X',)), ('target', 'y')),)"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingRegressor'>"
+          name: histgradientboostingregressor
+          params_tuple: "(('categorical_features', 'from_dtype'), ('early_stopping', 'auto'), ('interaction_cst', None), ('l2_regularization', 0.0), ('learning_rate', 0.1), ('loss', 'squared_error'), ('max_bins', 255), ('max_depth', None), ('max_features', 1.0), ('max_iter', 100), ('max_leaf_nodes', 31), ('min_samples_leaf', 20), ('monotonic_cst', None), ('n_iter_no_change', 10), ('quantile', None), ('random_state', 0), ('scoring', 'loss'), ('tol', 1e-07), ('validation_fraction', 0.1), ('verbose', 0), ('warm_start', False))"
+          features: "('X',)"
+          target: y
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          y: float64
+          pred: float64
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          X: float64
+          y: float64
+      - id: "4"
+        type: Field
+        label: "Field:y"
+      - id: "5"
+        type: _predict_358ff79eb742
+        label: ExprScalarUDF
+        schema:
+          X: float64
+      - id: "6"
+        type: dumps_of__inner_fit_5
+        label: dumps_of__inner_fit_5
+      - id: "7"
+        type: Field
+        label: "Field:X"
+      - id: "8"
+        type: Field
+        label: "Field:y"
+      - id: "9"
+        type: Tag
+        label: Tag
+        schema:
+          X: float64
+          y: float64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: y
+          features: "('X',)"
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "4"
+        - "3"
+      - - "5"
+        - "6"
+      - - "6"
+        - "7"
+      - - "6"
+        - "8"
+      - - "7"
+        - "9"
+      - - "8"
+        - "9"
+      - - "9"
+        - "3"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - histgradientboostingregressor
+      features:
+        - X
+      target: y
