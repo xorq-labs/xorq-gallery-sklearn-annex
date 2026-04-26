@@ -100,6 +100,7 @@ entries:
   - c2bd417f2756
   - c52d45030ac6
   - c54545126b73
+  - c6e5f579fe74
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -206,3 +207,5 @@ aliases:
   - plot_all_scaling-xorq_power_yj_transformed
   - plot_mlp_alpha-xorq_circles_alpha316_preds
   - plot_svm_regression-xorq_poly_preds
+  - plot_quantile_regression-xorq_normal_q50_preds
+  - plot_quantile_regression-xorq_normal_qr_preds
