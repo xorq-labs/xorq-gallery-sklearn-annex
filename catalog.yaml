@@ -76,6 +76,7 @@ entries:
   - 906681c6d659
   - 95f93605196b
   - 9878b67ef2d7
+  - 9c2dbcdcacce
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -157,3 +158,4 @@ aliases:
   - plot_topics_extraction_with_nmf_lda-xorq_nmf_transformed
   - plot_lda_qda-xorq_lda_diff_preds
   - plot_classifier_comparison-xorq_linearly_separable_nearest_neighbors_preds
+  - plot_all_scaling-xorq_maxabs_transformed
