@@ -15,6 +15,7 @@ entries:
   - 15a0247796bc
   - 1edaf6a0b579
   - 224b49c44a74
+  - 22a2b72e594b
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -32,3 +33,4 @@ aliases:
   - plot_classifier_comparison-xorq_moons_linear_svm_preds
   - plot_classifier_comparison-xorq_moons_rbf_svm_preds
   - plot_classifier_comparison-xorq_circles_naive_bayes_preds
+  - plot_svm_regression-xorq_linear_preds

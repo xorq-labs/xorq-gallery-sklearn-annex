@@ -1,0 +1,118 @@
+md5sum: 449608a11cb1cd723b4fedf4316ceb52
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    y: float64
+    pred: float64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-22a2b72e594bdc92ee226f912cd72a11
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          _PREDICT_B04BBF0F851F("t0"."x") AS "pred"
+        FROM "ibis_pandas_memtable_e78a5ba29b880d9c0edeabc8f0829e33" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.svm._classes.SVR'>), ('name', 'svr'), ('params_tuple', (('C', 100), ('cache_size', 200), ('coef0', 0.0), ('degree', 3), ('epsilon', 0.1), ('gamma', 'auto'), ('kernel', 'linear'), ('max_iter', -1), ('shrinking', True), ('tol', 0.001), ('verbose', False))), ('features', ('x',)), ('target', 'y')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.svm._classes.SVR'>), ('name', 'svr'), ('params_tuple', (('C', 100), ('cache_size', 200), ('coef0', 0.0), ('degree', 3), ('epsilon', 0.1), ('gamma', 'auto'), ('kernel', 'linear'), ('max_iter', -1), ('shrinking', True), ('tol', 0.001), ('verbose', False))), ('features', ('x',)), ('target', 'y')),)"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.svm._classes.SVR'>"
+          name: svr
+          params_tuple: "(('C', 100), ('cache_size', 200), ('coef0', 0.0), ('degree', 3), ('epsilon', 0.1), ('gamma', 'auto'), ('kernel', 'linear'), ('max_iter', -1), ('shrinking', True), ('tol', 0.001), ('verbose', False))"
+          features: "('x',)"
+          target: y
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          y: float64
+          pred: float64
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          x: float64
+          y: float64
+      - id: "4"
+        type: Field
+        label: "Field:y"
+      - id: "5"
+        type: _predict_b04bbf0f851f
+        label: ExprScalarUDF
+        schema:
+          x: float64
+      - id: "6"
+        type: dumps_of__inner_fit_1
+        label: dumps_of__inner_fit_1
+      - id: "7"
+        type: Field
+        label: "Field:x"
+      - id: "8"
+        type: Field
+        label: "Field:y"
+      - id: "9"
+        type: Tag
+        label: Tag
+        schema:
+          x: float64
+          y: float64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: y
+          features: "('x',)"
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "4"
+        - "3"
+      - - "5"
+        - "6"
+      - - "6"
+        - "7"
+      - - "6"
+        - "8"
+      - - "7"
+        - "9"
+      - - "8"
+        - "9"
+      - - "9"
+        - "3"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - svr
+      features:
+        - x
+      target: y
