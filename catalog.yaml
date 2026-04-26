@@ -95,6 +95,7 @@ entries:
   - c199677edbb4
   - c1b8c931b244
   - c1bd8b95cd4c
+  - c22a12774431
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -196,3 +197,4 @@ aliases:
   - plot_mlp_alpha-xorq_linearly_alpha032_preds
   - plot_quantile_regression-xorq_pareto_q05_preds
   - plot_mlp_alpha-xorq_moons_alpha1000_preds
+  - plot_all_scaling-xorq_quantile_normal_transformed

@@ -1,0 +1,154 @@
+md5sum: 455fd2a710f6fbde6cfcf8621a4f7142
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    y_scaled: float64
+    MedInc: float64
+    AveOccup: float64
+  root_tag: FittedPipeline-transform
+  cache_keys:
+    key: letsql_cache-snapshot-0f376dab08d8cbcedba86b4038bcd25f
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          *
+        FROM "ibis_rbr-placeholder_eqvmquzlxrebjb"
+    - - ibis_rbr-placeholder_eqvmquzlxrebjb
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y_scaled",
+          _TRANSFORMED_DCDE1A050E45("t0"."MedInc", "t0"."AveOccup")['MedInc'] AS "MedInc",
+          _TRANSFORMED_DCDE1A050E45("t0"."MedInc", "t0"."AveOccup")['AveOccup'] AS "AveOccup"
+        FROM "ibis_pandas_memtable_c3dd8c996af6d87accfa6f27b601cd04" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          y_scaled: float64
+          MedInc: float64
+          AveOccup: float64
+        tag_metadata:
+          tag: FittedPipeline-transform
+          FittedPipeline-transform: "((('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.preprocessing._data.QuantileTransformer'>), ('name', 'scaler'), ('params_tuple', (('copy', True), ('ignore_implicit_zeros', False), ('n_quantiles', 1000), ('output_distribution', 'normal'), ('random_state', 42), ('subsample', 10000))), ('features', ('MedInc', 'AveOccup')), ('target', None)),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.preprocessing._data.QuantileTransformer'>), ('name', 'scaler'), ('params_tuple', (('copy', True), ('ignore_implicit_zeros', False), ('n_quantiles', 1000), ('output_distribution', 'normal'), ('random_state', 42), ('subsample', 10000))), ('features', ('MedInc', 'AveOccup')), ('target', None)),)"
+      - id: "1"
+        type: RemoteTable
+        label: "RemoteTable:ibis_rbr-placeholder_eqvmquzlxrebjb"
+        schema:
+          y_scaled: float64
+          MedInc: float64
+          AveOccup: float64
+      - id: "2"
+        type: Tag
+        label: Tag
+        schema:
+          y_scaled: float64
+          MedInc: float64
+          AveOccup: float64
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._data.QuantileTransformer'>"
+          name: scaler
+          params_tuple: "(('copy', True), ('ignore_implicit_zeros', False), ('n_quantiles', 1000), ('output_distribution', 'normal'), ('random_state', 42), ('subsample', 10000))"
+          features: "('MedInc', 'AveOccup')"
+          target: None
+      - id: "3"
+        type: Project
+        label: Project
+        schema:
+          y_scaled: float64
+          MedInc: float64
+          AveOccup: float64
+      - id: "4"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          MedInc: float64
+          AveOccup: float64
+          y_scaled: float64
+      - id: "5"
+        type: Field
+        label: "Field:y_scaled"
+      - id: "6"
+        type: StructField
+        label: StructField
+      - id: "7"
+        type: StructField
+        label: StructField
+      - id: "8"
+        type: _transformed_dcde1a050e45
+        label: ExprScalarUDF
+        schema:
+          MedInc: float64
+          AveOccup: float64
+      - id: "9"
+        type: dumps_of__inner_fit_7
+        label: dumps_of__inner_fit_7
+      - id: "10"
+        type: Field
+        label: "Field:MedInc"
+      - id: "11"
+        type: Field
+        label: "Field:AveOccup"
+      - id: "12"
+        type: Tag
+        label: Tag
+        schema:
+          MedInc: float64
+          AveOccup: float64
+          y_scaled: float64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: None
+          features: "('MedInc', 'AveOccup')"
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "3"
+        - "4"
+      - - "3"
+        - "5"
+      - - "3"
+        - "6"
+      - - "3"
+        - "7"
+      - - "5"
+        - "4"
+      - - "6"
+        - "8"
+      - - "7"
+        - "8"
+      - - "8"
+        - "9"
+      - - "9"
+        - "10"
+      - - "9"
+        - "11"
+      - - "10"
+        - "12"
+      - - "11"
+        - "12"
+      - - "12"
+        - "4"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - scaler
+      features:
+        - MedInc
+        - AveOccup
+      target: ~
