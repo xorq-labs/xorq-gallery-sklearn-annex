@@ -1,0 +1,130 @@
+md5sum: c51fe00fc44dff40fb060269dacca377
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    y: float64
+    pred: float64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-0d1233dc1c0e39f58c7835a511af6009
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          _PREDICT_2ECE0D32A5DC("t0"."X") AS "pred"
+        FROM "ibis_pandas_memtable_2dddd3b45b17795ff91d41b15dca4f81" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: |-
+            ((('tag', 'FittedStep-predict'), ('typ', <class 'xorq_gallery.sklearn.ensemble.plot_stack_predictors.StackingRegressorWrapper'>), ('name', 'stackingregressorwrapper'), ('params_tuple', (('estimators', (('Linear Ridge', Pipeline(steps=[('standardscaler', StandardScaler()), ('ridgecv', RidgeCV())])), ('Spline Ridge', Pipeline(steps=[('splinetransformer', SplineTransformer(n_knots=6)),
+                            ('polynomialfeatures',
+                             PolynomialFeatures(interaction_only=True)),
+                            ('ridgecv', RidgeCV())])), ('HGBT', HistGradientBoostingRegressor(random_state=0)))), ('final_estimator', RidgeCV()))), ('features', ('X',)), ('target', 'y')),)
+          FittedPipeline-all_steps: |-
+            ((('tag', 'FittedStep-predict'), ('typ', <class 'xorq_gallery.sklearn.ensemble.plot_stack_predictors.StackingRegressorWrapper'>), ('name', 'stackingregressorwrapper'), ('params_tuple', (('estimators', (('Linear Ridge', Pipeline(steps=[('standardscaler', StandardScaler()), ('ridgecv', RidgeCV())])), ('Spline Ridge', Pipeline(steps=[('splinetransformer', SplineTransformer(n_knots=6)),
+                            ('polynomialfeatures',
+                             PolynomialFeatures(interaction_only=True)),
+                            ('ridgecv', RidgeCV())])), ('HGBT', HistGradientBoostingRegressor(random_state=0)))), ('final_estimator', RidgeCV()))), ('features', ('X',)), ('target', 'y')),)
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'xorq_gallery.sklearn.ensemble.plot_stack_predictors.StackingRegressorWrapper'>"
+          name: stackingregressorwrapper
+          params_tuple: |-
+            (('estimators', (('Linear Ridge', Pipeline(steps=[('standardscaler', StandardScaler()), ('ridgecv', RidgeCV())])), ('Spline Ridge', Pipeline(steps=[('splinetransformer', SplineTransformer(n_knots=6)),
+                            ('polynomialfeatures',
+                             PolynomialFeatures(interaction_only=True)),
+                            ('ridgecv', RidgeCV())])), ('HGBT', HistGradientBoostingRegressor(random_state=0)))), ('final_estimator', RidgeCV()))
+          features: "('X',)"
+          target: y
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          y: float64
+          pred: float64
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          X: float64
+          y: float64
+      - id: "4"
+        type: Field
+        label: "Field:y"
+      - id: "5"
+        type: _predict_2ece0d32a5dc
+        label: ExprScalarUDF
+        schema:
+          X: float64
+      - id: "6"
+        type: dumps_of__inner_fit_6
+        label: dumps_of__inner_fit_6
+      - id: "7"
+        type: Field
+        label: "Field:X"
+      - id: "8"
+        type: Field
+        label: "Field:y"
+      - id: "9"
+        type: Tag
+        label: Tag
+        schema:
+          X: float64
+          y: float64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: y
+          features: "('X',)"
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "4"
+        - "3"
+      - - "5"
+        - "6"
+      - - "6"
+        - "7"
+      - - "6"
+        - "8"
+      - - "7"
+        - "9"
+      - - "8"
+        - "9"
+      - - "9"
+        - "3"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - stackingregressorwrapper
+      features:
+        - X
+      target: y
