@@ -1,0 +1,339 @@
+md5sum: 6b4f78e90d14830c5fe07a05db8c9c64
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    y: float64
+    pred: float64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-dbae4cc953ca98c175bf1f66d973b604
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          _PREDICT_AD96E4833851(_TRANSFORMED_ENCODED_33696D1594DB(_TRANSFORMED_ENCODED_1A6034E7E03D("t0"."X"))) AS "pred"
+        FROM "ibis_pandas_memtable_2dddd3b45b17795ff91d41b15dca4f81" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.linear_model._ridge.RidgeCV'>), ('name', 'ridgecv'), ('params_tuple', (('alpha_per_target', False), ('alphas', (0.1, 1.0, 10.0)), ('cv', None), ('fit_intercept', True), ('gcv_mode', None), ('scoring', None), ('store_cv_results', False))), ('features', ('transformed',)), ('target', 'y')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.preprocessing._polynomial.SplineTransformer'>), ('name', 'splinetransformer'), ('params_tuple', (('degree', 3), ('extrapolation', 'constant'), ('handle_missing', 'error'), ('include_bias', True), ('knots', 'uniform'), ('n_knots', 6), ('order', 'C'), ('sparse_output', False))), ('features', ('X',)), ('target', 'y')), (('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.preprocessing._polynomial.PolynomialFeatures'>), ('name', 'polynomialfeatures'), ('params_tuple', (('degree', 2), ('include_bias', True), ('interaction_only', True), ('order', 'C'))), ('features', ('transformed',)), ('target', 'y')), (('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.linear_model._ridge.RidgeCV'>), ('name', 'ridgecv'), ('params_tuple', (('alpha_per_target', False), ('alphas', (0.1, 1.0, 10.0)), ('cv', None), ('fit_intercept', True), ('gcv_mode', None), ('scoring', None), ('store_cv_results', False))), ('features', ('transformed',)), ('target', 'y')))"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.linear_model._ridge.RidgeCV'>"
+          name: ridgecv
+          params_tuple: "(('alpha_per_target', False), ('alphas', (0.1, 1.0, 10.0)), ('cv', None), ('fit_intercept', True), ('gcv_mode', None), ('scoring', None), ('store_cv_results', False))"
+          features: "('transformed',)"
+          target: y
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          y: float64
+          pred: float64
+      - id: "3"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._polynomial.PolynomialFeatures'>"
+          name: polynomialfeatures
+          params_tuple: "(('degree', 2), ('include_bias', True), ('interaction_only', True), ('order', 'C'))"
+          features: "('transformed',)"
+          target: y
+      - id: "4"
+        type: Field
+        label: "Field:y"
+      - id: "5"
+        type: _predict_ad96e4833851
+        label: ExprScalarUDF
+        schema:
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "6"
+        type: Project
+        label: Project
+        schema:
+          y: float64
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "7"
+        type: dumps_of__inner_fit_4
+        label: dumps_of__inner_fit_4
+      - id: "8"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._polynomial.SplineTransformer'>"
+          name: splinetransformer
+          params_tuple: "(('degree', 3), ('extrapolation', 'constant'), ('handle_missing', 'error'), ('include_bias', True), ('knots', 'uniform'), ('n_knots', 6), ('order', 'C'), ('sparse_output', False))"
+          features: "('X',)"
+          target: y
+      - id: "9"
+        type: Field
+        label: "Field:y"
+      - id: "10"
+        type: _transformed_encoded_33696d1594db
+        label: ExprScalarUDF
+        schema:
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "11"
+        type: Field
+        label: "Field:transformed"
+      - id: "12"
+        type: Field
+        label: "Field:y"
+      - id: "13"
+        type: Project
+        label: Project
+        schema:
+          y: float64
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "14"
+        type: dumps_of__inner_fit_3
+        label: dumps_of__inner_fit_3
+      - id: "15"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._polynomial.PolynomialFeatures'>"
+          name: polynomialfeatures
+          params_tuple: "(('degree', 2), ('include_bias', True), ('interaction_only', True), ('order', 'C'))"
+          features: "('transformed',)"
+          target: y
+      - id: "16"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          X: float64
+          y: float64
+      - id: "17"
+        type: Field
+        label: "Field:y"
+      - id: "18"
+        type: _transformed_encoded_1a6034e7e03d
+        label: ExprScalarUDF
+        schema:
+          X: float64
+      - id: "19"
+        type: Field
+        label: "Field:transformed"
+      - id: "20"
+        type: Field
+        label: "Field:y"
+      - id: "21"
+        type: Project
+        label: Project
+        schema:
+          y: float64
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "22"
+        type: dumps_of__inner_fit_2
+        label: dumps_of__inner_fit_2
+      - id: "23"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._polynomial.SplineTransformer'>"
+          name: splinetransformer
+          params_tuple: "(('degree', 3), ('extrapolation', 'constant'), ('handle_missing', 'error'), ('include_bias', True), ('knots', 'uniform'), ('n_knots', 6), ('order', 'C'), ('sparse_output', False))"
+          features: "('X',)"
+          target: y
+      - id: "24"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._polynomial.SplineTransformer'>"
+          name: splinetransformer
+          params_tuple: "(('degree', 3), ('extrapolation', 'constant'), ('handle_missing', 'error'), ('include_bias', True), ('knots', 'uniform'), ('n_knots', 6), ('order', 'C'), ('sparse_output', False))"
+          features: "('X',)"
+          target: y
+      - id: "25"
+        type: Field
+        label: "Field:y"
+      - id: "26"
+        type: _transformed_encoded_33696d1594db
+        label: ExprScalarUDF
+        schema:
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "27"
+        type: Field
+        label: "Field:X"
+      - id: "28"
+        type: Field
+        label: "Field:y"
+      - id: "29"
+        type: Project
+        label: Project
+        schema:
+          y: float64
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "30"
+        type: Project
+        label: Project
+        schema:
+          y: float64
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "31"
+        type: Tag
+        label: Tag
+        schema:
+          X: float64
+          y: float64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: y
+          features: "('X',)"
+      - id: "32"
+        type: _transformed_encoded_1a6034e7e03d
+        label: ExprScalarUDF
+        schema:
+          X: float64
+      - id: "33"
+        type: _transformed_encoded_1a6034e7e03d
+        label: ExprScalarUDF
+        schema:
+          X: float64
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "3"
+        - "6"
+      - - "4"
+        - "3"
+      - - "5"
+        - "7"
+      - - "6"
+        - "8"
+      - - "6"
+        - "9"
+      - - "6"
+        - "10"
+      - - "7"
+        - "11"
+      - - "7"
+        - "12"
+      - - "8"
+        - "13"
+      - - "9"
+        - "8"
+      - - "10"
+        - "14"
+      - - "11"
+        - "15"
+      - - "12"
+        - "15"
+      - - "13"
+        - "16"
+      - - "13"
+        - "17"
+      - - "13"
+        - "18"
+      - - "14"
+        - "19"
+      - - "14"
+        - "20"
+      - - "15"
+        - "21"
+      - - "17"
+        - "16"
+      - - "18"
+        - "22"
+      - - "19"
+        - "23"
+      - - "20"
+        - "23"
+      - - "21"
+        - "24"
+      - - "21"
+        - "25"
+      - - "21"
+        - "26"
+      - - "22"
+        - "27"
+      - - "22"
+        - "28"
+      - - "23"
+        - "29"
+      - - "24"
+        - "30"
+      - - "25"
+        - "24"
+      - - "26"
+        - "14"
+      - - "27"
+        - "31"
+      - - "28"
+        - "31"
+      - - "29"
+        - "31"
+      - - "29"
+        - "28"
+      - - "29"
+        - "32"
+      - - "30"
+        - "31"
+      - - "30"
+        - "28"
+      - - "30"
+        - "33"
+      - - "31"
+        - "16"
+      - - "32"
+        - "22"
+      - - "33"
+        - "22"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 3 steps
+      steps:
+        - splinetransformer
+        - polynomialfeatures
+        - ridgecv
+      features:
+        - transformed
+      target: y
