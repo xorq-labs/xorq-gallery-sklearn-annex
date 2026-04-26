@@ -1,0 +1,143 @@
+md5sum: baf87641dfd77b4f97cb25bbc6424bf4
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    target: int64
+    row_idx: int64
+    pred: int64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-4dd222eec066671f54fba7de18c9a0c5
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."target",
+          "t0"."row_idx",
+          _PREDICT_B1879705BF60("t0"."feature_0", "t0"."feature_1") AS "pred"
+        FROM "ibis_pandas_memtable_993c5aada991df2d9e1ca72feb604da4" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          target: int64
+          row_idx: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.linear_model._logistic.LogisticRegression'>), ('name', 'multinomial'), ('params_tuple', (('C', 1.0), ('class_weight', None), ('dual', False), ('fit_intercept', True), ('intercept_scaling', 1), ('l1_ratio', 0.0), ('max_iter', 100), ('n_jobs', None), ('penalty', 'deprecated'), ('random_state', 40), ('solver', 'lbfgs'), ('tol', 0.0001), ('verbose', 0), ('warm_start', False))), ('features', ('feature_0', 'feature_1')), ('target', 'target')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.linear_model._logistic.LogisticRegression'>), ('name', 'multinomial'), ('params_tuple', (('C', 1.0), ('class_weight', None), ('dual', False), ('fit_intercept', True), ('intercept_scaling', 1), ('l1_ratio', 0.0), ('max_iter', 100), ('n_jobs', None), ('penalty', 'deprecated'), ('random_state', 40), ('solver', 'lbfgs'), ('tol', 0.0001), ('verbose', 0), ('warm_start', False))), ('features', ('feature_0', 'feature_1')), ('target', 'target')),)"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          target: int64
+          row_idx: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.linear_model._logistic.LogisticRegression'>"
+          name: multinomial
+          params_tuple: "(('C', 1.0), ('class_weight', None), ('dual', False), ('fit_intercept', True), ('intercept_scaling', 1), ('l1_ratio', 0.0), ('max_iter', 100), ('n_jobs', None), ('penalty', 'deprecated'), ('random_state', 40), ('solver', 'lbfgs'), ('tol', 0.0001), ('verbose', 0), ('warm_start', False))"
+          features: "('feature_0', 'feature_1')"
+          target: target
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          target: int64
+          row_idx: int64
+          pred: int64
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          feature_0: float64
+          feature_1: float64
+          target: int64
+          row_idx: int64
+      - id: "4"
+        type: Field
+        label: "Field:target"
+      - id: "5"
+        type: Field
+        label: "Field:row_idx"
+      - id: "6"
+        type: _predict_b1879705bf60
+        label: ExprScalarUDF
+        schema:
+          feature_0: float64
+          feature_1: float64
+      - id: "7"
+        type: dumps_of__inner_fit_0
+        label: dumps_of__inner_fit_0
+      - id: "8"
+        type: Field
+        label: "Field:feature_0"
+      - id: "9"
+        type: Field
+        label: "Field:feature_1"
+      - id: "10"
+        type: Field
+        label: "Field:target"
+      - id: "11"
+        type: Tag
+        label: Tag
+        schema:
+          feature_0: float64
+          feature_1: float64
+          target: int64
+          row_idx: int64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: target
+          features: "('feature_0', 'feature_1')"
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "2"
+        - "6"
+      - - "4"
+        - "3"
+      - - "5"
+        - "3"
+      - - "6"
+        - "7"
+      - - "7"
+        - "8"
+      - - "7"
+        - "9"
+      - - "7"
+        - "10"
+      - - "8"
+        - "11"
+      - - "9"
+        - "11"
+      - - "10"
+        - "11"
+      - - "11"
+        - "3"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - multinomial
+      features:
+        - feature_0
+        - feature_1
+      target: target
