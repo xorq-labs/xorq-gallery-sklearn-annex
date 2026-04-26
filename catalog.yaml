@@ -111,6 +111,7 @@ entries:
   - d6d67f3dc8ad
   - d729288d9149
   - d8f9f10d8ed0
+  - da5d81960a3d
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -229,3 +230,4 @@ aliases:
   - plot_roc-xorq_class2_proba
   - plot_classifier_comparison-xorq_linearly_separable_decision_tree_preds
   - plot_discretization_strategies-xorq_ds2_uniform_transformed
+  - plot_tree_regression-xorq_depth5_preds
