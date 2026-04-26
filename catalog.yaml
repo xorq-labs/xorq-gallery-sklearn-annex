@@ -106,6 +106,7 @@ entries:
   - cbd54646c936
   - ccf4278f870a
   - d00346120737
+  - d34b44341a11
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -219,3 +220,4 @@ aliases:
   - plot_classifier_comparison-xorq_circles_random_forest_preds
   - plot_mlp_alpha-xorq_circles_alpha032_preds
   - plot_nca_classification-xorq_knn_preds
+  - plot_discretization_strategies-xorq_ds2_kmeans_transformed
