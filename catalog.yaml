@@ -71,6 +71,7 @@ entries:
   - 7e09b82c22a3
   - 7f40ef7e47c9
   - 8306d4e90fa4
+  - 84f183536d85
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -147,3 +148,4 @@ aliases:
   - plot_classifier_comparison-xorq_moons_adaboost_preds
   - plot_mlp_alpha-xorq_circles_alpha100_preds
   - plot_voting_regressor-xorq_gb_preds
+  - plot_discretization_strategies-xorq_ds0_quantile_transformed
