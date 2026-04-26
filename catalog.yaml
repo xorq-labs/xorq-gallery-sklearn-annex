@@ -82,6 +82,7 @@ entries:
   - a3a821d3a3e5
   - a467e955ea6f
   - a6d901cbedce
+  - a70a5134dd6b
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -169,3 +170,4 @@ aliases:
   - plot_classifier_comparison-xorq_linearly_separable_neural_net_preds
   - plot_lasso_and_elasticnet-xorq_lasso_preds
   - plot_stack_predictors-xorq_linear_ridge_preds
+  - plot_compare_calibration-xorq_logistic_proba
