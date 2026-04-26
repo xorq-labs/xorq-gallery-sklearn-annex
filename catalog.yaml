@@ -20,6 +20,7 @@ entries:
   - 2436502fe387
   - 264cef9ca73e
   - 2969ab502434
+  - 2bf78a7f5bb5
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -45,3 +46,4 @@ aliases:
   - plot_kmeans_silhouette_analysis-xorq_k4_preds
   - plot_all_scaling-xorq_minmax_transformed
   - plot_compare_calibration-xorq_random_forest_proba
+  - plot_faces_decomposition-xorq_nmf_transformed
