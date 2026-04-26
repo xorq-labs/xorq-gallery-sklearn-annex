@@ -1,0 +1,385 @@
+md5sum: f1645118f97e2f5c9543246ec116ca2c
+backends:
+  - xorq_datafusion
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    target: int64
+    pred: int64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-b2f3f7ce2196ea9e81795ea8607f3f40
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."target",
+          _PREDICT_D7DBEA75352D("t0"."sepal_length", "t0"."sepal_width", "t0"."petal_length", "t0"."petal_width") AS "pred"
+        FROM "ibis_rbr-placeholder_qeltwjr2snc33h" AS "t0"
+    - - ibis_rbr-placeholder_m5u56o2lc5a73d
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."target",
+          _TRANSFORMED_AF76766A29E2("t0"."sepal_length", "t0"."sepal_width", "t0"."petal_length", "t0"."petal_width")['sepal_length'] AS "sepal_length",
+          _TRANSFORMED_AF76766A29E2("t0"."sepal_length", "t0"."sepal_width", "t0"."petal_length", "t0"."petal_width")['sepal_width'] AS "sepal_width",
+          _TRANSFORMED_AF76766A29E2("t0"."sepal_length", "t0"."sepal_width", "t0"."petal_length", "t0"."petal_width")['petal_length'] AS "petal_length",
+          _TRANSFORMED_AF76766A29E2("t0"."sepal_length", "t0"."sepal_width", "t0"."petal_length", "t0"."petal_width")['petal_width'] AS "petal_width"
+        FROM "ibis_pandas_memtable_f59f58579c31b297448407521a08dc39" AS "t0"
+    - - ibis_rbr-placeholder_qeltwjr2snc33h
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."target",
+          _TRANSFORMED_AF76766A29E2("t0"."sepal_length", "t0"."sepal_width", "t0"."petal_length", "t0"."petal_width")['sepal_length'] AS "sepal_length",
+          _TRANSFORMED_AF76766A29E2("t0"."sepal_length", "t0"."sepal_width", "t0"."petal_length", "t0"."petal_width")['sepal_width'] AS "sepal_width",
+          _TRANSFORMED_AF76766A29E2("t0"."sepal_length", "t0"."sepal_width", "t0"."petal_length", "t0"."petal_width")['petal_length'] AS "petal_length",
+          _TRANSFORMED_AF76766A29E2("t0"."sepal_length", "t0"."sepal_width", "t0"."petal_length", "t0"."petal_width")['petal_width'] AS "petal_width"
+        FROM "ibis_pandas_memtable_4ac9e57bf8904bb35733413464525634" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          target: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.svm._classes.SVC'>), ('name', 'clf'), ('params_tuple', (('C', 1.0), ('break_ties', False), ('cache_size', 200), ('class_weight', None), ('coef0', 0.0), ('decision_function_shape', 'ovr'), ('degree', 3), ('gamma', 'scale'), ('kernel', 'linear'), ('max_iter', -1), ('probability', False), ('random_state', 0), ('shrinking', True), ('tol', 0.001), ('verbose', False))), ('features', ('sepal_length', 'sepal_width', 'petal_length', 'petal_width')), ('target', 'target')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.preprocessing._data.StandardScaler'>), ('name', 'scaler'), ('params_tuple', (('copy', True), ('with_mean', True), ('with_std', True))), ('features', ('sepal_length', 'sepal_width', 'petal_length', 'petal_width')), ('target', 'target')), (('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.svm._classes.SVC'>), ('name', 'clf'), ('params_tuple', (('C', 1.0), ('break_ties', False), ('cache_size', 200), ('class_weight', None), ('coef0', 0.0), ('decision_function_shape', 'ovr'), ('degree', 3), ('gamma', 'scale'), ('kernel', 'linear'), ('max_iter', -1), ('probability', False), ('random_state', 0), ('shrinking', True), ('tol', 0.001), ('verbose', False))), ('features', ('sepal_length', 'sepal_width', 'petal_length', 'petal_width')), ('target', 'target')))"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          target: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.svm._classes.SVC'>"
+          name: clf
+          params_tuple: "(('C', 1.0), ('break_ties', False), ('cache_size', 200), ('class_weight', None), ('coef0', 0.0), ('decision_function_shape', 'ovr'), ('degree', 3), ('gamma', 'scale'), ('kernel', 'linear'), ('max_iter', -1), ('probability', False), ('random_state', 0), ('shrinking', True), ('tol', 0.001), ('verbose', False))"
+          features: "('sepal_length', 'sepal_width', 'petal_length', 'petal_width')"
+          target: target
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          target: int64
+          pred: int64
+      - id: "3"
+        type: RemoteTable
+        label: "RemoteTable:ibis_rbr-placeholder_qeltwjr2snc33h"
+        schema:
+          target: int64
+          sepal_length: float64
+          sepal_width: float64
+          petal_length: float64
+          petal_width: float64
+      - id: "4"
+        type: Field
+        label: "Field:target"
+      - id: "5"
+        type: _predict_d7dbea75352d
+        label: ExprScalarUDF
+        schema:
+          sepal_length: float64
+          sepal_width: float64
+          petal_length: float64
+          petal_width: float64
+      - id: "6"
+        type: Tag
+        label: Tag
+        schema:
+          target: int64
+          sepal_length: float64
+          sepal_width: float64
+          petal_length: float64
+          petal_width: float64
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._data.StandardScaler'>"
+          name: scaler
+          params_tuple: "(('copy', True), ('with_mean', True), ('with_std', True))"
+          features: "('sepal_length', 'sepal_width', 'petal_length', 'petal_width')"
+          target: target
+      - id: "7"
+        type: dumps_of__inner_fit_1
+        label: dumps_of__inner_fit_1
+      - id: "8"
+        type: Project
+        label: Project
+        schema:
+          target: int64
+          sepal_length: float64
+          sepal_width: float64
+          petal_length: float64
+          petal_width: float64
+      - id: "9"
+        type: Field
+        label: "Field:sepal_length"
+      - id: "10"
+        type: Field
+        label: "Field:sepal_width"
+      - id: "11"
+        type: Field
+        label: "Field:petal_length"
+      - id: "12"
+        type: Field
+        label: "Field:petal_width"
+      - id: "13"
+        type: Field
+        label: "Field:target"
+      - id: "14"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          sepal_length: float64
+          sepal_width: float64
+          petal_length: float64
+          petal_width: float64
+          target: int64
+      - id: "15"
+        type: Field
+        label: "Field:target"
+      - id: "16"
+        type: StructField
+        label: StructField
+      - id: "17"
+        type: StructField
+        label: StructField
+      - id: "18"
+        type: StructField
+        label: StructField
+      - id: "19"
+        type: StructField
+        label: StructField
+      - id: "20"
+        type: RemoteTable
+        label: "RemoteTable:ibis_rbr-placeholder_m5u56o2lc5a73d"
+        schema:
+          target: int64
+          sepal_length: float64
+          sepal_width: float64
+          petal_length: float64
+          petal_width: float64
+      - id: "21"
+        type: _transformed_af76766a29e2
+        label: ExprScalarUDF
+        schema:
+          sepal_length: float64
+          sepal_width: float64
+          petal_length: float64
+          petal_width: float64
+      - id: "22"
+        type: Tag
+        label: Tag
+        schema:
+          target: int64
+          sepal_length: float64
+          sepal_width: float64
+          petal_length: float64
+          petal_width: float64
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._data.StandardScaler'>"
+          name: scaler
+          params_tuple: "(('copy', True), ('with_mean', True), ('with_std', True))"
+          features: "('sepal_length', 'sepal_width', 'petal_length', 'petal_width')"
+          target: target
+      - id: "23"
+        type: dumps_of__inner_fit_0
+        label: dumps_of__inner_fit_0
+      - id: "24"
+        type: Project
+        label: Project
+        schema:
+          target: int64
+          sepal_length: float64
+          sepal_width: float64
+          petal_length: float64
+          petal_width: float64
+      - id: "25"
+        type: Field
+        label: "Field:sepal_length"
+      - id: "26"
+        type: Field
+        label: "Field:sepal_width"
+      - id: "27"
+        type: Field
+        label: "Field:petal_length"
+      - id: "28"
+        type: Field
+        label: "Field:petal_width"
+      - id: "29"
+        type: Field
+        label: "Field:target"
+      - id: "30"
+        type: Tag
+        label: Tag
+        schema:
+          sepal_length: float64
+          sepal_width: float64
+          petal_length: float64
+          petal_width: float64
+          target: int64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: target
+          features: "('sepal_length', 'sepal_width', 'petal_length', 'petal_width')"
+      - id: "31"
+        type: StructField
+        label: StructField
+      - id: "32"
+        type: StructField
+        label: StructField
+      - id: "33"
+        type: StructField
+        label: StructField
+      - id: "34"
+        type: StructField
+        label: StructField
+      - id: "35"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          sepal_length: float64
+          sepal_width: float64
+          petal_length: float64
+          petal_width: float64
+          target: int64
+      - id: "36"
+        type: _transformed_af76766a29e2
+        label: ExprScalarUDF
+        schema:
+          sepal_length: float64
+          sepal_width: float64
+          petal_length: float64
+          petal_width: float64
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "3"
+        - "6"
+      - - "4"
+        - "3"
+      - - "5"
+        - "7"
+      - - "6"
+        - "8"
+      - - "7"
+        - "9"
+      - - "7"
+        - "10"
+      - - "7"
+        - "11"
+      - - "7"
+        - "12"
+      - - "7"
+        - "13"
+      - - "8"
+        - "14"
+      - - "8"
+        - "15"
+      - - "8"
+        - "16"
+      - - "8"
+        - "17"
+      - - "8"
+        - "18"
+      - - "8"
+        - "19"
+      - - "9"
+        - "20"
+      - - "10"
+        - "20"
+      - - "11"
+        - "20"
+      - - "12"
+        - "20"
+      - - "13"
+        - "20"
+      - - "15"
+        - "14"
+      - - "16"
+        - "21"
+      - - "17"
+        - "21"
+      - - "18"
+        - "21"
+      - - "19"
+        - "21"
+      - - "20"
+        - "22"
+      - - "21"
+        - "23"
+      - - "22"
+        - "24"
+      - - "23"
+        - "25"
+      - - "23"
+        - "26"
+      - - "23"
+        - "27"
+      - - "23"
+        - "28"
+      - - "23"
+        - "29"
+      - - "24"
+        - "30"
+      - - "24"
+        - "29"
+      - - "24"
+        - "31"
+      - - "24"
+        - "32"
+      - - "24"
+        - "33"
+      - - "24"
+        - "34"
+      - - "25"
+        - "30"
+      - - "26"
+        - "30"
+      - - "27"
+        - "30"
+      - - "28"
+        - "30"
+      - - "29"
+        - "30"
+      - - "30"
+        - "35"
+      - - "31"
+        - "36"
+      - - "32"
+        - "36"
+      - - "33"
+        - "36"
+      - - "34"
+        - "36"
+      - - "36"
+        - "23"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 2 steps
+      steps:
+        - scaler
+        - clf
+      features:
+        - sepal_length
+        - sepal_width
+        - petal_length
+        - petal_width
+      target: target
