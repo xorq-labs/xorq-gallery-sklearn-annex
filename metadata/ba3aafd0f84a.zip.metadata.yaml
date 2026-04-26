@@ -1,0 +1,122 @@
+md5sum: db98ede657a85f4795a99f2c166faead
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    dataset_id: int64
+    transformed: "array<struct<key: string, value: float64>>"
+  root_tag: FittedPipeline-transform
+  cache_keys:
+    key: letsql_cache-snapshot-ba3aafd0f84a05db1d06a7716175060c
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."dataset_id",
+          _TRANSFORMED_ENCODED_6A766AB7FEDB("t0"."x0", "t0"."x1") AS "transformed"
+        FROM "ibis_pandas_memtable_42c902af0b71f4759fe0f4d03e8fbce3" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          dataset_id: int64
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedPipeline-transform
+          FittedPipeline-transform: "((('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.preprocessing._discretization.KBinsDiscretizer'>), ('name', 'discretizer'), ('params_tuple', (('dtype', None), ('encode', 'ordinal'), ('n_bins', 4), ('quantile_method', 'averaged_inverted_cdf'), ('random_state', None), ('strategy', 'uniform'), ('subsample', 200000))), ('features', ('x0', 'x1')), ('target', None)),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-transform'), ('typ', <class 'sklearn.preprocessing._discretization.KBinsDiscretizer'>), ('name', 'discretizer'), ('params_tuple', (('dtype', None), ('encode', 'ordinal'), ('n_bins', 4), ('quantile_method', 'averaged_inverted_cdf'), ('random_state', None), ('strategy', 'uniform'), ('subsample', 200000))), ('features', ('x0', 'x1')), ('target', None)),)"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          dataset_id: int64
+          transformed: "array<struct<key: string, value: float64>>"
+        tag_metadata:
+          tag: FittedStep-transform
+          typ: "<class 'sklearn.preprocessing._discretization.KBinsDiscretizer'>"
+          name: discretizer
+          params_tuple: "(('dtype', None), ('encode', 'ordinal'), ('n_bins', 4), ('quantile_method', 'averaged_inverted_cdf'), ('random_state', None), ('strategy', 'uniform'), ('subsample', 200000))"
+          features: "('x0', 'x1')"
+          target: None
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          dataset_id: int64
+          transformed: "array<struct<key: string, value: float64>>"
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          x0: float64
+          x1: float64
+          dataset_id: int64
+      - id: "4"
+        type: Field
+        label: "Field:dataset_id"
+      - id: "5"
+        type: _transformed_encoded_6a766ab7fedb
+        label: ExprScalarUDF
+        schema:
+          x0: float64
+          x1: float64
+      - id: "6"
+        type: dumps_of__inner_fit_0
+        label: dumps_of__inner_fit_0
+      - id: "7"
+        type: Field
+        label: "Field:x0"
+      - id: "8"
+        type: Field
+        label: "Field:x1"
+      - id: "9"
+        type: Tag
+        label: Tag
+        schema:
+          x0: float64
+          x1: float64
+          dataset_id: int64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: None
+          features: "('x0', 'x1')"
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "4"
+        - "3"
+      - - "5"
+        - "6"
+      - - "6"
+        - "7"
+      - - "6"
+        - "8"
+      - - "7"
+        - "9"
+      - - "8"
+        - "9"
+      - - "9"
+        - "3"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - discretizer
+      features:
+        - x0
+        - x1
+      target: ~
