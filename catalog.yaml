@@ -22,6 +22,7 @@ entries:
   - 2969ab502434
   - 2bf78a7f5bb5
   - 2e5c0fe0668f
+  - 2ec25d4b83dd
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -49,3 +50,4 @@ aliases:
   - plot_compare_calibration-xorq_random_forest_proba
   - plot_faces_decomposition-xorq_nmf_transformed
   - plot_quantile_regression-xorq_pareto_lr_preds
+  - plot_classifier_comparison-xorq_linearly_separable_random_forest_preds
