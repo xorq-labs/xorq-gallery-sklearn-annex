@@ -6,6 +6,7 @@ entries:
   - 08a07d3d637e
   - 0975ee687d49
   - 0d1233dc1c0e
+  - 0da8c208cfdc
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -14,3 +15,4 @@ aliases:
   - plot_all_scaling-xorq_robust_transformed
   - plot_mlp_alpha-xorq_moons_alpha032_preds
   - plot_stack_predictors-xorq_stacking_preds
+  - plot_mlp_alpha-xorq_moons_alpha316_preds
