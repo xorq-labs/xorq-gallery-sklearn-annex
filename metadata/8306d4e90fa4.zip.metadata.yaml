@@ -1,0 +1,228 @@
+md5sum: 674c2f8491c83d711967786d77588f55
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    target: float64
+    pred: float64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-8306d4e90fa43b538bdbc857945b7730
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."target",
+          _PREDICT_C5318964E3EB(
+            "t0"."age",
+            "t0"."sex",
+            "t0"."bmi",
+            "t0"."bp",
+            "t0"."s1",
+            "t0"."s2",
+            "t0"."s3",
+            "t0"."s4",
+            "t0"."s5",
+            "t0"."s6"
+          ) AS "pred"
+        FROM "ibis_pandas_memtable_2d2cd3ef15150e3c35e101b36aedbe2f" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          target: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.ensemble._gb.GradientBoostingRegressor'>), ('name', 'gradientboostingregressor'), ('params_tuple', (('alpha', 0.9), ('ccp_alpha', 0.0), ('criterion', 'friedman_mse'), ('init', None), ('learning_rate', 0.1), ('loss', 'squared_error'), ('max_depth', 3), ('max_features', None), ('max_leaf_nodes', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('min_weight_fraction_leaf', 0.0), ('n_estimators', 100), ('n_iter_no_change', None), ('random_state', 1), ('subsample', 1.0), ('tol', 0.0001), ('validation_fraction', 0.1), ('verbose', 0), ('warm_start', False))), ('features', ('age', 'sex', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6')), ('target', 'target')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.ensemble._gb.GradientBoostingRegressor'>), ('name', 'gradientboostingregressor'), ('params_tuple', (('alpha', 0.9), ('ccp_alpha', 0.0), ('criterion', 'friedman_mse'), ('init', None), ('learning_rate', 0.1), ('loss', 'squared_error'), ('max_depth', 3), ('max_features', None), ('max_leaf_nodes', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('min_weight_fraction_leaf', 0.0), ('n_estimators', 100), ('n_iter_no_change', None), ('random_state', 1), ('subsample', 1.0), ('tol', 0.0001), ('validation_fraction', 0.1), ('verbose', 0), ('warm_start', False))), ('features', ('age', 'sex', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6')), ('target', 'target')),)"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          target: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.ensemble._gb.GradientBoostingRegressor'>"
+          name: gradientboostingregressor
+          params_tuple: "(('alpha', 0.9), ('ccp_alpha', 0.0), ('criterion', 'friedman_mse'), ('init', None), ('learning_rate', 0.1), ('loss', 'squared_error'), ('max_depth', 3), ('max_features', None), ('max_leaf_nodes', None), ('min_impurity_decrease', 0.0), ('min_samples_leaf', 1), ('min_samples_split', 2), ('min_weight_fraction_leaf', 0.0), ('n_estimators', 100), ('n_iter_no_change', None), ('random_state', 1), ('subsample', 1.0), ('tol', 0.0001), ('validation_fraction', 0.1), ('verbose', 0), ('warm_start', False))"
+          features: "('age', 'sex', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6')"
+          target: target
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          target: float64
+          pred: float64
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          age: float64
+          sex: float64
+          bmi: float64
+          bp: float64
+          s1: float64
+          s2: float64
+          s3: float64
+          s4: float64
+          s5: float64
+          s6: float64
+          target: float64
+      - id: "4"
+        type: Field
+        label: "Field:target"
+      - id: "5"
+        type: _predict_c5318964e3eb
+        label: ExprScalarUDF
+        schema:
+          age: float64
+          sex: float64
+          bmi: float64
+          bp: float64
+          s1: float64
+          s2: float64
+          s3: float64
+          s4: float64
+          s5: float64
+          s6: float64
+      - id: "6"
+        type: dumps_of__inner_fit_0
+        label: dumps_of__inner_fit_0
+      - id: "7"
+        type: Field
+        label: "Field:age"
+      - id: "8"
+        type: Field
+        label: "Field:sex"
+      - id: "9"
+        type: Field
+        label: "Field:bmi"
+      - id: "10"
+        type: Field
+        label: "Field:bp"
+      - id: "11"
+        type: Field
+        label: "Field:s1"
+      - id: "12"
+        type: Field
+        label: "Field:s2"
+      - id: "13"
+        type: Field
+        label: "Field:s3"
+      - id: "14"
+        type: Field
+        label: "Field:s4"
+      - id: "15"
+        type: Field
+        label: "Field:s5"
+      - id: "16"
+        type: Field
+        label: "Field:s6"
+      - id: "17"
+        type: Field
+        label: "Field:target"
+      - id: "18"
+        type: Tag
+        label: Tag
+        schema:
+          age: float64
+          sex: float64
+          bmi: float64
+          bp: float64
+          s1: float64
+          s2: float64
+          s3: float64
+          s4: float64
+          s5: float64
+          s6: float64
+          target: float64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: target
+          features: "('age', 'sex', 'bmi', 'bp', 's1', 's2', 's3', 's4', 's5', 's6')"
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "4"
+        - "3"
+      - - "5"
+        - "6"
+      - - "6"
+        - "7"
+      - - "6"
+        - "8"
+      - - "6"
+        - "9"
+      - - "6"
+        - "10"
+      - - "6"
+        - "11"
+      - - "6"
+        - "12"
+      - - "6"
+        - "13"
+      - - "6"
+        - "14"
+      - - "6"
+        - "15"
+      - - "6"
+        - "16"
+      - - "6"
+        - "17"
+      - - "7"
+        - "18"
+      - - "8"
+        - "18"
+      - - "9"
+        - "18"
+      - - "10"
+        - "18"
+      - - "11"
+        - "18"
+      - - "12"
+        - "18"
+      - - "13"
+        - "18"
+      - - "14"
+        - "18"
+      - - "15"
+        - "18"
+      - - "16"
+        - "18"
+      - - "17"
+        - "18"
+      - - "18"
+        - "3"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - gradientboostingregressor
+      features:
+        - age
+        - sex
+        - bmi
+        - bp
+        - s1
+        - s2
+        - s3
+        - s4
+        - s5
+        - s6
+      target: target
