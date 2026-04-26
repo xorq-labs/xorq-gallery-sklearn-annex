@@ -115,6 +115,7 @@ entries:
   - db7fbf03e1a6
   - dbae4cc953ca
   - dc887d4c50ff
+  - dcf8cbda0ba3
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -237,3 +238,4 @@ aliases:
   - plot_faces_decomposition-xorq_pca_transformed
   - plot_stack_predictors-xorq_spline_ridge_preds
   - plot_faces_decomposition-xorq_sparse_pca_transformed
+  - plot_logistic_multinomial-xorq_ovr_preds
