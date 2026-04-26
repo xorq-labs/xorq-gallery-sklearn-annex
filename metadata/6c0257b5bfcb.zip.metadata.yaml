@@ -1,0 +1,136 @@
+md5sum: f515c4b50ec4ad355fd03dba80b3e8d4
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    target: int64
+    pred: int64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-6c0257b5bfcb6e796bad32bcd1778896
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."target",
+          _PREDICT_9E40E3D24044("t0"."sepal_length", "t0"."sepal_width") AS "pred"
+        FROM "ibis_pandas_memtable_ad1ca4883a14ba922e71a93737422040" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          target: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingClassifier'>), ('name', 'hgb'), ('params_tuple', (('categorical_features', 'from_dtype'), ('class_weight', None), ('early_stopping', 'auto'), ('interaction_cst', None), ('l2_regularization', 0.0), ('learning_rate', 0.1), ('loss', 'log_loss'), ('max_bins', 255), ('max_depth', None), ('max_features', 1.0), ('max_iter', 100), ('max_leaf_nodes', 31), ('min_samples_leaf', 20), ('monotonic_cst', None), ('n_iter_no_change', 10), ('random_state', 42), ('scoring', 'loss'), ('tol', 1e-07), ('validation_fraction', 0.1), ('verbose', 0), ('warm_start', False))), ('features', ('sepal_length', 'sepal_width')), ('target', 'target')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingClassifier'>), ('name', 'hgb'), ('params_tuple', (('categorical_features', 'from_dtype'), ('class_weight', None), ('early_stopping', 'auto'), ('interaction_cst', None), ('l2_regularization', 0.0), ('learning_rate', 0.1), ('loss', 'log_loss'), ('max_bins', 255), ('max_depth', None), ('max_features', 1.0), ('max_iter', 100), ('max_leaf_nodes', 31), ('min_samples_leaf', 20), ('monotonic_cst', None), ('n_iter_no_change', 10), ('random_state', 42), ('scoring', 'loss'), ('tol', 1e-07), ('validation_fraction', 0.1), ('verbose', 0), ('warm_start', False))), ('features', ('sepal_length', 'sepal_width')), ('target', 'target')),)"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          target: int64
+          pred: int64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingClassifier'>"
+          name: hgb
+          params_tuple: "(('categorical_features', 'from_dtype'), ('class_weight', None), ('early_stopping', 'auto'), ('interaction_cst', None), ('l2_regularization', 0.0), ('learning_rate', 0.1), ('loss', 'log_loss'), ('max_bins', 255), ('max_depth', None), ('max_features', 1.0), ('max_iter', 100), ('max_leaf_nodes', 31), ('min_samples_leaf', 20), ('monotonic_cst', None), ('n_iter_no_change', 10), ('random_state', 42), ('scoring', 'loss'), ('tol', 1e-07), ('validation_fraction', 0.1), ('verbose', 0), ('warm_start', False))"
+          features: "('sepal_length', 'sepal_width')"
+          target: target
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          target: int64
+          pred: int64
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          sepal_length: float64
+          sepal_width: float64
+          target: int64
+      - id: "4"
+        type: Field
+        label: "Field:target"
+      - id: "5"
+        type: _predict_9e40e3d24044
+        label: ExprScalarUDF
+        schema:
+          sepal_length: float64
+          sepal_width: float64
+      - id: "6"
+        type: dumps_of__inner_fit_4
+        label: dumps_of__inner_fit_4
+      - id: "7"
+        type: Field
+        label: "Field:sepal_length"
+      - id: "8"
+        type: Field
+        label: "Field:sepal_width"
+      - id: "9"
+        type: Field
+        label: "Field:target"
+      - id: "10"
+        type: Tag
+        label: Tag
+        schema:
+          sepal_length: float64
+          sepal_width: float64
+          target: int64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: target
+          features: "('sepal_length', 'sepal_width')"
+      - id: "11"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          sepal_length: float64
+          sepal_width: float64
+          target: int64
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "4"
+        - "3"
+      - - "5"
+        - "6"
+      - - "6"
+        - "7"
+      - - "6"
+        - "8"
+      - - "6"
+        - "9"
+      - - "7"
+        - "10"
+      - - "8"
+        - "10"
+      - - "9"
+        - "10"
+      - - "10"
+        - "11"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - hgb
+      features:
+        - sepal_length
+        - sepal_width
+      target: target
