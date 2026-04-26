@@ -41,6 +41,7 @@ entries:
   - 44066a7c5d35
   - 465ddd0f722e
   - 46f90e951f53
+  - 4917a3d961ba
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -87,3 +88,4 @@ aliases:
   - plot_classifier_comparison-xorq_moons_naive_bayes_preds
   - plot_classifier_comparison-xorq_linearly_separable_adaboost_preds
   - plot_lasso_and_elasticnet-xorq_elastic_net_preds
+  - plot_mlp_alpha-xorq_linearly_alpha010_preds
