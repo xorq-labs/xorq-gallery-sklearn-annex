@@ -1,0 +1,403 @@
+md5sum: 55545bbfc9d15e6c5c660302cd62f2f3
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    y: int64
+    row_idx: int64
+    predict_proba: array<float64>
+  root_tag: FittedPipeline-predict_proba
+  cache_keys:
+    key: letsql_cache-snapshot-e54305946ed32c5d52d71355a6173af9
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          *
+        FROM "ibis_rbr-placeholder_vnztehgz2zba5l"
+    - - ibis_rbr-placeholder_vnztehgz2zba5l
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          "t0"."row_idx",
+          _PREDICT_PROBA_9F722305DF89(
+            "t0"."x0",
+            "t0"."x1",
+            "t0"."x2",
+            "t0"."x3",
+            "t0"."x4",
+            "t0"."x5",
+            "t0"."x6",
+            "t0"."x7",
+            "t0"."x8",
+            "t0"."x9",
+            "t0"."x10",
+            "t0"."x11",
+            "t0"."x12",
+            "t0"."x13",
+            "t0"."x14",
+            "t0"."x15",
+            "t0"."x16",
+            "t0"."x17",
+            "t0"."x18",
+            "t0"."x19"
+          ) AS "predict_proba"
+        FROM "ibis_pandas_memtable_10d72d4bc93e1951f9cd677adeb3073e" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          y: int64
+          row_idx: int64
+          predict_proba: array<float64>
+        tag_metadata:
+          tag: FittedPipeline-predict_proba
+          FittedPipeline-predict_proba: "((('tag', 'FittedStep-predict'), ('typ', <class 'xorq_gallery.sklearn.calibration.plot_compare_calibration.NaivelyCalibratedLinearSVC'>), ('name', 'svc'), ('params_tuple', (('C', 1.0), ('class_weight', None), ('dual', 'auto'), ('fit_intercept', True), ('intercept_scaling', 1), ('loss', 'squared_hinge'), ('max_iter', 1000), ('multi_class', 'ovr'), ('penalty', 'l2'), ('random_state', 42), ('tol', 0.0001), ('verbose', 0))), ('features', ('x0', 'x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x10', 'x11', 'x12', 'x13', 'x14', 'x15', 'x16', 'x17', 'x18', 'x19')), ('target', 'y')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-predict'), ('typ', <class 'xorq_gallery.sklearn.calibration.plot_compare_calibration.NaivelyCalibratedLinearSVC'>), ('name', 'svc'), ('params_tuple', (('C', 1.0), ('class_weight', None), ('dual', 'auto'), ('fit_intercept', True), ('intercept_scaling', 1), ('loss', 'squared_hinge'), ('max_iter', 1000), ('multi_class', 'ovr'), ('penalty', 'l2'), ('random_state', 42), ('tol', 0.0001), ('verbose', 0))), ('features', ('x0', 'x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x10', 'x11', 'x12', 'x13', 'x14', 'x15', 'x16', 'x17', 'x18', 'x19')), ('target', 'y')),)"
+      - id: "1"
+        type: RemoteTable
+        label: "RemoteTable:ibis_rbr-placeholder_vnztehgz2zba5l"
+        schema:
+          y: int64
+          row_idx: int64
+          predict_proba: array<float64>
+      - id: "2"
+        type: Tag
+        label: Tag
+        schema:
+          y: int64
+          row_idx: int64
+          predict_proba: array<float64>
+        tag_metadata:
+          tag: FittedStep-predict_proba
+          typ: "<class 'xorq_gallery.sklearn.calibration.plot_compare_calibration.NaivelyCalibratedLinearSVC'>"
+          name: svc
+          params_tuple: "(('C', 1.0), ('class_weight', None), ('dual', 'auto'), ('fit_intercept', True), ('intercept_scaling', 1), ('loss', 'squared_hinge'), ('max_iter', 1000), ('multi_class', 'ovr'), ('penalty', 'l2'), ('random_state', 42), ('tol', 0.0001), ('verbose', 0))"
+          features: "('x0', 'x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x10', 'x11', 'x12', 'x13', 'x14', 'x15', 'x16', 'x17', 'x18', 'x19')"
+          target: y
+      - id: "3"
+        type: Project
+        label: Project
+        schema:
+          y: int64
+          row_idx: int64
+          predict_proba: array<float64>
+      - id: "4"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          x0: float64
+          x1: float64
+          x2: float64
+          x3: float64
+          x4: float64
+          x5: float64
+          x6: float64
+          x7: float64
+          x8: float64
+          x9: float64
+          x10: float64
+          x11: float64
+          x12: float64
+          x13: float64
+          x14: float64
+          x15: float64
+          x16: float64
+          x17: float64
+          x18: float64
+          x19: float64
+          y: int64
+          row_idx: int64
+      - id: "5"
+        type: Field
+        label: "Field:y"
+      - id: "6"
+        type: Field
+        label: "Field:row_idx"
+      - id: "7"
+        type: _predict_proba_9f722305df89
+        label: ExprScalarUDF
+        schema:
+          x0: float64
+          x1: float64
+          x2: float64
+          x3: float64
+          x4: float64
+          x5: float64
+          x6: float64
+          x7: float64
+          x8: float64
+          x9: float64
+          x10: float64
+          x11: float64
+          x12: float64
+          x13: float64
+          x14: float64
+          x15: float64
+          x16: float64
+          x17: float64
+          x18: float64
+          x19: float64
+      - id: "8"
+        type: dumps_of__inner_fit_2
+        label: dumps_of__inner_fit_2
+      - id: "9"
+        type: Field
+        label: "Field:x0"
+      - id: "10"
+        type: Field
+        label: "Field:x1"
+      - id: "11"
+        type: Field
+        label: "Field:x2"
+      - id: "12"
+        type: Field
+        label: "Field:x3"
+      - id: "13"
+        type: Field
+        label: "Field:x4"
+      - id: "14"
+        type: Field
+        label: "Field:x5"
+      - id: "15"
+        type: Field
+        label: "Field:x6"
+      - id: "16"
+        type: Field
+        label: "Field:x7"
+      - id: "17"
+        type: Field
+        label: "Field:x8"
+      - id: "18"
+        type: Field
+        label: "Field:x9"
+      - id: "19"
+        type: Field
+        label: "Field:x10"
+      - id: "20"
+        type: Field
+        label: "Field:x11"
+      - id: "21"
+        type: Field
+        label: "Field:x12"
+      - id: "22"
+        type: Field
+        label: "Field:x13"
+      - id: "23"
+        type: Field
+        label: "Field:x14"
+      - id: "24"
+        type: Field
+        label: "Field:x15"
+      - id: "25"
+        type: Field
+        label: "Field:x16"
+      - id: "26"
+        type: Field
+        label: "Field:x17"
+      - id: "27"
+        type: Field
+        label: "Field:x18"
+      - id: "28"
+        type: Field
+        label: "Field:x19"
+      - id: "29"
+        type: Field
+        label: "Field:y"
+      - id: "30"
+        type: Tag
+        label: Tag
+        schema:
+          x0: float64
+          x1: float64
+          x2: float64
+          x3: float64
+          x4: float64
+          x5: float64
+          x6: float64
+          x7: float64
+          x8: float64
+          x9: float64
+          x10: float64
+          x11: float64
+          x12: float64
+          x13: float64
+          x14: float64
+          x15: float64
+          x16: float64
+          x17: float64
+          x18: float64
+          x19: float64
+          y: int64
+          row_idx: int64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: y
+          features: "('x0', 'x1', 'x2', 'x3', 'x4', 'x5', 'x6', 'x7', 'x8', 'x9', 'x10', 'x11', 'x12', 'x13', 'x14', 'x15', 'x16', 'x17', 'x18', 'x19')"
+      - id: "31"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          x0: float64
+          x1: float64
+          x2: float64
+          x3: float64
+          x4: float64
+          x5: float64
+          x6: float64
+          x7: float64
+          x8: float64
+          x9: float64
+          x10: float64
+          x11: float64
+          x12: float64
+          x13: float64
+          x14: float64
+          x15: float64
+          x16: float64
+          x17: float64
+          x18: float64
+          x19: float64
+          y: int64
+          row_idx: int64
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "3"
+        - "4"
+      - - "3"
+        - "5"
+      - - "3"
+        - "6"
+      - - "3"
+        - "7"
+      - - "5"
+        - "4"
+      - - "6"
+        - "4"
+      - - "7"
+        - "8"
+      - - "8"
+        - "9"
+      - - "8"
+        - "10"
+      - - "8"
+        - "11"
+      - - "8"
+        - "12"
+      - - "8"
+        - "13"
+      - - "8"
+        - "14"
+      - - "8"
+        - "15"
+      - - "8"
+        - "16"
+      - - "8"
+        - "17"
+      - - "8"
+        - "18"
+      - - "8"
+        - "19"
+      - - "8"
+        - "20"
+      - - "8"
+        - "21"
+      - - "8"
+        - "22"
+      - - "8"
+        - "23"
+      - - "8"
+        - "24"
+      - - "8"
+        - "25"
+      - - "8"
+        - "26"
+      - - "8"
+        - "27"
+      - - "8"
+        - "28"
+      - - "8"
+        - "29"
+      - - "9"
+        - "30"
+      - - "10"
+        - "30"
+      - - "11"
+        - "30"
+      - - "12"
+        - "30"
+      - - "13"
+        - "30"
+      - - "14"
+        - "30"
+      - - "15"
+        - "30"
+      - - "16"
+        - "30"
+      - - "17"
+        - "30"
+      - - "18"
+        - "30"
+      - - "19"
+        - "30"
+      - - "20"
+        - "30"
+      - - "21"
+        - "30"
+      - - "22"
+        - "30"
+      - - "23"
+        - "30"
+      - - "24"
+        - "30"
+      - - "25"
+        - "30"
+      - - "26"
+        - "30"
+      - - "27"
+        - "30"
+      - - "28"
+        - "30"
+      - - "29"
+        - "30"
+      - - "30"
+        - "31"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - svc
+      features:
+        - x0
+        - x1
+        - x2
+        - x3
+        - x4
+        - x5
+        - x6
+        - x7
+        - x8
+        - x9
+        - x10
+        - x11
+        - x12
+        - x13
+        - x14
+        - x15
+        - x16
+        - x17
+        - x18
+        - x19
+      target: y
