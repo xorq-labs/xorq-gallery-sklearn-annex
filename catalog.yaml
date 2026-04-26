@@ -48,6 +48,7 @@ entries:
   - 517a5dc02118
   - 5200833030c4
   - 528485e9606c
+  - 54b4c6cf2696
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -101,3 +102,4 @@ aliases:
   - plot_classifier_comparison-xorq_moons_nearest_neighbors_preds
   - plot_kmeans_silhouette_analysis-xorq_k2_preds
   - plot_mlp_alpha-xorq_linearly_alpha316_preds
+  - plot_svm_kernels-xorq_sigmoid_preds
