@@ -66,6 +66,7 @@ entries:
   - 782b0962e6e5
   - 79835331c335
   - 7aff754ef203
+  - 7b2c197a9469
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -137,3 +138,4 @@ aliases:
   - plot_compare_calibration-xorq_naive_bayes_proba
   - plot_lda_qda-xorq_lda_shared_preds
   - plot_mlp_alpha-xorq_moons_alpha100_preds
+  - plot_faces_decomposition-xorq_fa_transformed
