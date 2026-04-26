@@ -36,6 +36,7 @@ entries:
   - 3cbfcc6ce398
   - 3eae309d5322
   - 3fbd178f5949
+  - 401a04201d89
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -77,3 +78,4 @@ aliases:
   - plot_discretization_strategies-xorq_ds0_kmeans_transformed
   - plot_lda_qda-xorq_lda_iso_preds
   - plot_tomography_l1_reconstruction-xorq_lasso_preds
+  - plot_discretization_strategies-xorq_ds1_kmeans_transformed
