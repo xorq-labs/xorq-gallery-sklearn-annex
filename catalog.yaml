@@ -121,6 +121,7 @@ entries:
   - e1b700be2f1b
   - e431c96ee9c4
   - e54305946ed3
+  - e7105ab59bcd
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -249,3 +250,4 @@ aliases:
   - plot_kmeans_digits-xorq_random_preds
   - plot_discretization_strategies-xorq_ds1_quantile_transformed
   - plot_compare_calibration-xorq_svc_proba
+  - plot_classification_probability-xorq_lr_c01_preds
