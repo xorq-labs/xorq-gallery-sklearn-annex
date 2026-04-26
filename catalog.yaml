@@ -2,7 +2,9 @@ entries:
   - 018d8462121d
   - 031a27d8db85
   - 03d726b632e9
+  - 07d766b76b0a
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
   - plot_mlp_alpha-xorq_moons_alpha010_preds
+  - plot_cv_indices-xorq_timeseriessplit_folds
