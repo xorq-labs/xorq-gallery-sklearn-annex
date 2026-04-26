@@ -117,6 +117,7 @@ entries:
   - dc887d4c50ff
   - dcf8cbda0ba3
   - ddd2f4f00066
+  - e154179f2e80
 aliases:
   - plot_faces_decomposition-xorq_dict_pos_transformed
   - plot_lda_qda-xorq_qda_shared_preds
@@ -241,3 +242,4 @@ aliases:
   - plot_faces_decomposition-xorq_sparse_pca_transformed
   - plot_logistic_multinomial-xorq_ovr_preds
   - plot_confusion_matrix-xorq_svc_preds
+  - plot_roc-xorq_class1_proba
