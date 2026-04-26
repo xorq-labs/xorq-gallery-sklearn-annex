@@ -1,0 +1,146 @@
+md5sum: aa827aa948fb903c32a45d19b7256b5d
+backends:
+  - xorq_datafusion
+expr_metadata:
+  kind: expr_builder
+  schema_out:
+    y: float64
+    x: float64
+    y_true_mean: float64
+    pred: float64
+  root_tag: FittedPipeline-predict
+  cache_keys:
+    key: letsql_cache-snapshot-6b944942cabda8ce068b8b630bd37b6d
+    relative_path: parquet
+  sql_queries:
+    - - main
+      - xorq_datafusion
+      - |-
+        SELECT
+          "t0"."y",
+          "t0"."x",
+          "t0"."y_true_mean",
+          _PREDICT_440CF1190F5C("t0"."feature_0") AS "pred"
+        FROM "ibis_pandas_memtable_07b37689211078497881e95e36613d64" AS "t0"
+  lineage:
+    nodes:
+      - id: "0"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          x: float64
+          y_true_mean: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedPipeline-predict
+          FittedPipeline-predict: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.linear_model._quantile.QuantileRegressor'>), ('name', 'qr'), ('params_tuple', (('alpha', 0), ('fit_intercept', True), ('quantile', 0.95), ('solver', 'highs'), ('solver_options', None))), ('features', ('feature_0',)), ('target', 'y')),)"
+          FittedPipeline-all_steps: "((('tag', 'FittedStep-predict'), ('typ', <class 'sklearn.linear_model._quantile.QuantileRegressor'>), ('name', 'qr'), ('params_tuple', (('alpha', 0), ('fit_intercept', True), ('quantile', 0.95), ('solver', 'highs'), ('solver_options', None))), ('features', ('feature_0',)), ('target', 'y')),)"
+      - id: "1"
+        type: Tag
+        label: Tag
+        schema:
+          y: float64
+          x: float64
+          y_true_mean: float64
+          pred: float64
+        tag_metadata:
+          tag: FittedStep-predict
+          typ: "<class 'sklearn.linear_model._quantile.QuantileRegressor'>"
+          name: qr
+          params_tuple: "(('alpha', 0), ('fit_intercept', True), ('quantile', 0.95), ('solver', 'highs'), ('solver_options', None))"
+          features: "('feature_0',)"
+          target: y
+      - id: "2"
+        type: Project
+        label: Project
+        schema:
+          y: float64
+          x: float64
+          y_true_mean: float64
+          pred: float64
+      - id: "3"
+        type: InMemoryTable
+        label: InMemoryTable
+        schema:
+          feature_0: float64
+          y: float64
+          x: float64
+          y_true_mean: float64
+      - id: "4"
+        type: Field
+        label: "Field:y"
+      - id: "5"
+        type: Field
+        label: "Field:x"
+      - id: "6"
+        type: Field
+        label: "Field:y_true_mean"
+      - id: "7"
+        type: _predict_440cf1190f5c
+        label: ExprScalarUDF
+        schema:
+          feature_0: float64
+      - id: "8"
+        type: dumps_of__inner_fit_7
+        label: dumps_of__inner_fit_7
+      - id: "9"
+        type: Field
+        label: "Field:feature_0"
+      - id: "10"
+        type: Field
+        label: "Field:y"
+      - id: "11"
+        type: Tag
+        label: Tag
+        schema:
+          feature_0: float64
+          y: float64
+          x: float64
+          y_true_mean: float64
+        tag_metadata:
+          tag: FittedPipeline-training
+          target: y
+          features: "('feature_0',)"
+    edges:
+      - - "0"
+        - "1"
+      - - "1"
+        - "2"
+      - - "2"
+        - "3"
+      - - "2"
+        - "4"
+      - - "2"
+        - "5"
+      - - "2"
+        - "6"
+      - - "2"
+        - "7"
+      - - "4"
+        - "3"
+      - - "5"
+        - "3"
+      - - "6"
+        - "3"
+      - - "7"
+        - "8"
+      - - "8"
+        - "9"
+      - - "8"
+        - "10"
+      - - "9"
+        - "11"
+      - - "10"
+        - "11"
+      - - "11"
+        - "3"
+    root: "0"
+  builders:
+    - type: fitted_pipeline
+      description: 1 steps
+      steps:
+        - qr
+      features:
+        - feature_0
+      target: y
